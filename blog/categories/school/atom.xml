@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: School | Wonderful Programming Land]]></title>
+  <title><![CDATA[Category: School | Intriguingly-Titled Coding Blog]]></title>
   <link href="http://kamoh.github.io/blog/categories/school/atom.xml" rel="self"/>
   <link href="http://kamoh.github.io/"/>
-  <updated>2014-06-04T10:45:28-04:00</updated>
+  <updated>2014-06-04T10:46:00-04:00</updated>
   <id>http://kamoh.github.io/</id>
   <author>
     <name><![CDATA[Ben Serviss]]></name>
