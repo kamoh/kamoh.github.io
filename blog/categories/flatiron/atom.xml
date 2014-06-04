@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Flatiron | Wonderful Programming Land]]></title>
+  <link href="http://kamoh.github.io/blog/categories/flatiron/atom.xml" rel="self"/>
+  <link href="http://kamoh.github.io/"/>
+  <updated>2014-06-04T10:16:30-04:00</updated>
+  <id>http://kamoh.github.io/</id>
+  <author>
+    <name><![CDATA[Ben Serviss]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Why Learn to Program?]]></title>
+    <link href="http://kamoh.github.io/blog/2014/05/27/why-learn-to-program/"/>
+    <updated>2014-05-27T10:10:07-04:00</updated>
+    <id>http://kamoh.github.io/blog/2014/05/27/why-learn-to-program</id>
+    <content type="html"><![CDATA[<p>Starting on the first week of June, I&rsquo;ll be starting as a web development student at the Flatiron School. The course is full-time intensive, meeting every day from 9-6 for twelve weeks. Students enter as programming newbies and leave as employed, full-stack web developers.</p>
+
+<p>Since graduating from college, I&rsquo;d been working in the video game industry as a designer and producer. So why the switch to programming?</p>
+
+<p>I&rsquo;ve always been interested in how computers work. Though I&rsquo;ve long messed around with light coding, websites and scripting here and there over the past ten years, I&rsquo;ve never sat down to formally learn it (aside from poorly-taught classes in high school and college). After a friend of mine went through Flatiron&rsquo;s program, his constant praise for the experience piqued my interest, and after getting accepted, I decided to go.</p>
+
+<p>However, it&rsquo;s more than a longtime interest. The world today runs on software, especially over the web. If you&rsquo;re able to not only understand how the web works, but capable of creating your own tools that leverage it, you wield immense power. I&rsquo;ve always valued being a creator over just being a consumer, and the knowledge I hope to gain from this class will push me even further to the former.</p>
+
+<p>Over the course of the class, I&rsquo;ll be posting updates and thoughts in this blog. It&rsquo;s going to be an interesting summer.</p>
+]]></content>
+  </entry>
+  
+</feed>
