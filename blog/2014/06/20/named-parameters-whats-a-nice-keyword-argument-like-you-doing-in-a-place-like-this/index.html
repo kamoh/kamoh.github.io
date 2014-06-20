@@ -111,7 +111,7 @@
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">drink</span><span class="p">(</span><span class="ss">spirit</span><span class="p">:</span> <span class="n">whiskey</span><span class="p">)</span> <span class="c1"># spirit = the named parameter</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">drink</span><span class="p">(</span><span class="ss">spirit</span><span class="p">:</span> <span class="s2">&quot;whiskey&quot;</span><span class="p">)</span> <span class="c1"># spirit = the named parameter</span>
 </span><span class='line'>    <span class="s2">&quot;Another </span><span class="si">#{</span><span class="n">spirit</span><span class="si">}</span><span class="s2"> for my friend here, barkeep.&quot;</span>
 </span><span class='line'>  <span class="k">end</span>
 </span><span class='line'>  <span class="c1">#=&gt; &quot;Another whiskey for my friend here, barkeep.&quot;</span>
@@ -214,16 +214,12 @@
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">speakeasy_knock</span><span class="p">(</span><span class="ss">password</span><span class="p">:</span> <span class="p">)</span>
 </span><span class='line'>    <span class="s2">&quot;&#39;</span><span class="si">#{</span><span class="n">password</span><span class="si">}</span><span class="s2">&#39;? Good enough for me, come on in!&quot;</span>
 </span><span class='line'>  <span class="k">end</span>
 </span><span class='line'>
 </span><span class='line'>  <span class="n">speakeasy_knock</span>
 </span><span class='line'>  <span class="c1">#=&gt; ArgumentError: missing keyword: password</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="n">speakeasy_knock</span><span class="p">(</span><span class="n">swordfish</span><span class="p">)</span>
 </span><span class='line'>
 </span><span class='line'>  <span class="n">speakeasy_knock</span><span class="p">(</span><span class="ss">password</span><span class="p">:</span> <span class="s2">&quot;Open up, chump!&quot;</span><span class="p">)</span>
 </span><span class='line'>  <span class="c1">#=&gt; &quot;&#39;Open up, chump&#39;? Good enough for me, come on in!&quot; </span>

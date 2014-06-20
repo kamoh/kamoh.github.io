@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Flatiron School | lolgramming]]></title>
   <link href="http://kamoh.github.io/blog/categories/flatiron-school/atom.xml" rel="self"/>
   <link href="http://kamoh.github.io/"/>
-  <updated>2014-06-20T01:37:25-04:00</updated>
+  <updated>2014-06-20T01:42:25-04:00</updated>
   <id>http://kamoh.github.io/</id>
   <author>
     <name><![CDATA[Ben Serviss]]></name>
@@ -23,7 +23,7 @@
 <p>Because their behavior appears similar to default arguments, most of us were mystified about their purpose.</p>
 
 <p>```ruby
-  def drink(spirit: whiskey) # spirit = the named parameter</p>
+  def drink(spirit: &ldquo;whiskey&rdquo;) # spirit = the named parameter</p>
 
 <pre><code>"Another #{spirit} for my friend here, barkeep."
 </code></pre>
@@ -109,8 +109,6 @@ On the other hand, who cares? This feature is a nice wrinkle, but it doesn&rsquo
 
 <p>  speakeasy_knock
   #=> ArgumentError: missing keyword: password</p>
-
-<p>  speakeasy_knock(swordfish)</p>
 
 <p>  speakeasy_knock(password: &ldquo;Open up, chump!&rdquo;)
   #=> &ldquo;&lsquo;Open up, chump&rsquo;? Good enough for me, come on in!&rdquo;
