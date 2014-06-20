@@ -132,49 +132,9 @@
     </div>
     <div class="span10 post-container">
       <h1 class="link"><a href="/blog/2014/06/20/named-parameters-whats-a-nice-keyword-argument-like-you-doing-in-a-place-like-this/">Named Parameters: What&#8217;s A Nice Keyword Argument Like You Doing in a Place Like This?</a></h1>
-      <p>In one of the labs from a few weeks ago my Ruby class was introduced to named parameters, also known as keyword arguments.</p>
+      <p>In one of the labs from a few weeks ago my Ruby class was introduced to named parameters, also known as keyword arguments. These parameters are defined in the method signature with a default value, in the format (named_parameter: default_value).</p>
 
-<p>Because their behavior appears similar to default arguments, most of us were mystified about their purpose.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">drink</span><span class="p">(</span><span class="ss">spirit</span><span class="p">:</span> <span class="s2">&quot;whiskey&quot;</span><span class="p">)</span> <span class="c1"># spirit = the named parameter</span>
-</span><span class='line'>    <span class="s2">&quot;Another </span><span class="si">#{</span><span class="n">spirit</span><span class="si">}</span><span class="s2"> for my friend here, barkeep.&quot;</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>  <span class="c1">#=&gt; &quot;Another whiskey for my friend here, barkeep.&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>As beginners, was there some use for them we just weren&rsquo;t grasping? Or were these named parameters just another option bestowed by the Ruby gods in order afford us more options when coding?</p>
-
-<p>At first glance, named parameters bear more than a passing resemblance to standard arguments. For example, if you try to call a standard method with arguments without using any, you get an error:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">drink</span><span class="p">(</span><span class="n">container</span><span class="p">)</span>
-</span><span class='line'>    <span class="s2">&quot;Pour me a </span><span class="si">#{</span><span class="n">container</span><span class="si">}</span><span class="s2">, willya?&quot;</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="n">drink</span><span class="p">(</span><span class="s2">&quot;glass&quot;</span><span class="p">)</span>
-</span><span class='line'>  <span class="c1">#=&gt; &quot;Pour me a glass, willya?&quot;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="n">drink</span>
-</span><span class='line'>  <span class="c1">#=&gt; ArgumentError: wrong number of arguments (0 for 1)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>It&rsquo;s logical to assume that named parameters would work the same way.</p>
-
-<p>Yet if you try this with a method with named parameters, it still runs &ndash; just like how standard parameters use default values for missing arguments!</p>
+<p>Because their behavior appears similar to standard arguments with default values, most of us were mystified about their purpose. In Ruby, standard arguments with default values appear in the format (standard_argument=default_value):</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -205,7 +165,34 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Sure, this is helpful to have, but it&rsquo;s nothing that we can&rsquo;t do through default parameters.</p>
+<p>As beginners, was there some use for them we just weren&rsquo;t grasping? Or were these named parameters just another option bestowed by the Ruby gods in order afford us more options when coding?</p>
+
+<p>For example, if you try to call a standard method with arguments without using any, you get an error:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">drink</span><span class="p">(</span><span class="n">container</span><span class="p">)</span>
+</span><span class='line'>    <span class="s2">&quot;Pour me a </span><span class="si">#{</span><span class="n">container</span><span class="si">}</span><span class="s2">, willya?&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">drink</span><span class="p">(</span><span class="s2">&quot;glass&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="c1">#=&gt; &quot;Pour me a glass, willya?&quot;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">drink</span>
+</span><span class='line'>  <span class="c1">#=&gt; ArgumentError: wrong number of arguments (0 for 1)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It&rsquo;s logical to assume that named parameters would work the same way. Yet if you try this with a method with named parameters, it still runs &ndash; just like how standard parameters use default values for missing arguments!</p>
+
+<p>While this is helpful to have, it&rsquo;s nothing that we can&rsquo;t do through default parameters.</p>
 
 <p>Then we learned that named parameters don&rsquo;t care about the order in which you call them.</p>
 
