@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | lolgramming]]></title>
   <link href="http://kamoh.github.io/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://kamoh.github.io/"/>
-  <updated>2014-06-14T17:51:18-04:00</updated>
+  <updated>2014-06-20T01:37:25-04:00</updated>
   <id>http://kamoh.github.io/</id>
   <author>
     <name><![CDATA[Ben Serviss]]></name>
@@ -12,6 +12,123 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Named Parameters: What's A Nice Keyword Argument Like You Doing in a Place Like This?]]></title>
+    <link href="http://kamoh.github.io/blog/2014/06/20/named-parameters-whats-a-nice-keyword-argument-like-you-doing-in-a-place-like-this/"/>
+    <updated>2014-06-20T00:29:30-04:00</updated>
+    <id>http://kamoh.github.io/blog/2014/06/20/named-parameters-whats-a-nice-keyword-argument-like-you-doing-in-a-place-like-this</id>
+    <content type="html"><![CDATA[<p>In one of the labs from a few weeks ago my Ruby class was introduced to named parameters, also known as keyword arguments.</p>
+
+<p>Because their behavior appears similar to default arguments, most of us were mystified about their purpose.</p>
+
+<p>```ruby
+  def drink(spirit: whiskey) # spirit = the named parameter</p>
+
+<pre><code>"Another #{spirit} for my friend here, barkeep."
+</code></pre>
+
+<p>  end
+  #=> &ldquo;Another whiskey for my friend here, barkeep.&rdquo;
+```
+As beginners, was there some use for them we just weren&rsquo;t grasping? Or were these named parameters just another option bestowed by the Ruby gods in order afford us more options when coding?</p>
+
+<p>At first glance, named parameters bear more than a passing resemblance to standard arguments. For example, if you try to call a standard method with arguments without using any, you get an error:</p>
+
+<p>```ruby
+  def drink(container)</p>
+
+<pre><code>"Pour me a #{container}, willya?"
+</code></pre>
+
+<p>  end</p>
+
+<p>  drink(&ldquo;glass&rdquo;)
+  #=> &ldquo;Pour me a glass, willya?&rdquo;</p>
+
+<p>  drink
+  #=> ArgumentError: wrong number of arguments (0 for 1)
+```
+It&rsquo;s logical to assume that named parameters would work the same way.</p>
+
+<p>Yet if you try this with a method with named parameters, it still runs &ndash; just like how standard parameters use default values for missing arguments!</p>
+
+<p>```ruby
+  def drink(spirit: &ldquo;whiskey&rdquo;) # spirit = named parameter</p>
+
+<pre><code>"Another #{spirit} for my friend here, barkeep."
+</code></pre>
+
+<p>  end</p>
+
+<p>  drink
+  #=> &ldquo;Another #{spirit} for my friend here, barkeep.&rdquo;</p>
+
+<p>  def eat(snacks=&ldquo;pretzels&rdquo;) # snacks = standard parameter with default value</p>
+
+<pre><code>"And some #{snacks} - I'm famished!"
+</code></pre>
+
+<p>  end</p>
+
+<p>  eat
+  #=> &ldquo;And some pretzels &ndash; I&rsquo;m famished!&rdquo;
+```
+Sure, this is helpful to have, but it&rsquo;s nothing that we can&rsquo;t do through default parameters.</p>
+
+<p>Then we learned that named parameters don&rsquo;t care about the order in which you call them.</p>
+
+<p>On one hand, neat trick!</p>
+
+<p>```ruby
+  def bootlegger(distillery: location, source: location)</p>
+
+<pre><code>"We smuggled the bourbon from #{source}, but we brewed this moonshine in #{distillery}. Dee-licious!"
+</code></pre>
+
+<p>  end</p>
+
+<p>  bootlegger(source: &ldquo;Canada&rdquo;, distillery: &ldquo;Grandma&rsquo;s old bathtub&rdquo;)
+  #=> &ldquo;We smuggled the bourbon from Canada, but we brewed this moonshine in Grandma&rsquo;s old bathtub. Dee-licious!&rdquo;
+```
+On the other hand, who cares? This feature is a nice wrinkle, but it doesn&rsquo;t really seem like it warrants the existence of the function.</p>
+
+<p>After a little digging and experimentation, I finally found a reason why named parameters are worth the trouble: They allow methods to require specifically-named parameters when being invoked, for an added measure of security!</p>
+
+<p style="text-align:center;"><img src="/images/keep_out.jpeg" title="&lsquo;Oh, you forgot to close your parentheses? Scram!&rsquo;" ></p>
+
+<p style="text-align:center;"> <em>Source: <a href="https://www.flickr.com/photos/double_seven/4407285444/?rb=1">Flickr</a></em></p>
+
+<p>```ruby
+  def speakeasy_knock(password: )</p>
+
+<pre><code>"'#{password}'? Good enough for me, come on in!"
+</code></pre>
+
+<p>  end</p>
+
+<p>  speakeasy_knock
+  #=> ArgumentError: missing keyword: password</p>
+
+<p>  speakeasy_knock(swordfish)</p>
+
+<p>  speakeasy_knock(password: &ldquo;Open up, chump!&rdquo;)
+  #=> &ldquo;&lsquo;Open up, chump&rsquo;? Good enough for me, come on in!&rdquo;
+```
+Of course, you&rsquo;ll need added security measures beyond just requiring the named parameter. But suddenly, having named parameters available as a tool starts to make sense.</p>
+
+<p>Because standard arguments take input regardless of typing or designation, and because default arguments are fine not taking any input from the method call at all, requiring a named parameter for a method to function gives it a measure of protection against reckless usage.</p>
+
+<p>To strain an already-exhausted metaphor, named parameters are exactly like locked doors that require code words in order to grant entry.</p>
+
+<p style="text-align:center;"><img src="/images/62014/speakeasy.jpg" title="&lsquo;Hooray for named parameters and bootlegging, in no particular order!&rsquo;" ></p>
+
+<p style="text-align:center;"> <em>Source: <a href="http://speakeasy216.com/">Speakeasy216</a></em></p>
+
+<p>For more gory details about this and other functions introduced in Ruby 2.0.0, check out this substantial post by Marc-Andre Lafortune:
+<a href="http://blog.marc-andre.ca/2013/02/23/ruby-2-by-example/">http://blog.marc-andre.ca/2013/02/23/ruby-2-by-example/</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Flatiron School: Two Week Recap]]></title>

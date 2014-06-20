@@ -4,7 +4,7 @@
   <title><![CDATA[lolgramming]]></title>
   <link href="http://kamoh.github.io/atom.xml" rel="self"/>
   <link href="http://kamoh.github.io/"/>
-  <updated>2014-06-14T17:51:18-04:00</updated>
+  <updated>2014-06-20T01:37:25-04:00</updated>
   <id>http://kamoh.github.io/</id>
   <author>
     <name><![CDATA[Ben Serviss]]></name>
@@ -12,6 +12,153 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Named Parameters: What's A Nice Keyword Argument Like You Doing in a Place Like This?]]></title>
+    <link href="http://kamoh.github.io/blog/2014/06/20/named-parameters-whats-a-nice-keyword-argument-like-you-doing-in-a-place-like-this/"/>
+    <updated>2014-06-20T00:29:30-04:00</updated>
+    <id>http://kamoh.github.io/blog/2014/06/20/named-parameters-whats-a-nice-keyword-argument-like-you-doing-in-a-place-like-this</id>
+    <content type="html"><![CDATA[<p>In one of the labs from a few weeks ago my Ruby class was introduced to named parameters, also known as keyword arguments.</p>
+
+<p>Because their behavior appears similar to default arguments, most of us were mystified about their purpose.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">drink</span><span class="p">(</span><span class="ss">spirit</span><span class="p">:</span> <span class="n">whiskey</span><span class="p">)</span> <span class="c1"># spirit = the named parameter</span>
+</span><span class='line'>    <span class="s2">&quot;Another </span><span class="si">#{</span><span class="n">spirit</span><span class="si">}</span><span class="s2"> for my friend here, barkeep.&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="c1">#=&gt; &quot;Another whiskey for my friend here, barkeep.&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>As beginners, was there some use for them we just weren&rsquo;t grasping? Or were these named parameters just another option bestowed by the Ruby gods in order afford us more options when coding?</p>
+
+<p>At first glance, named parameters bear more than a passing resemblance to standard arguments. For example, if you try to call a standard method with arguments without using any, you get an error:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">drink</span><span class="p">(</span><span class="n">container</span><span class="p">)</span>
+</span><span class='line'>    <span class="s2">&quot;Pour me a </span><span class="si">#{</span><span class="n">container</span><span class="si">}</span><span class="s2">, willya?&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">drink</span><span class="p">(</span><span class="s2">&quot;glass&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="c1">#=&gt; &quot;Pour me a glass, willya?&quot;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">drink</span>
+</span><span class='line'>  <span class="c1">#=&gt; ArgumentError: wrong number of arguments (0 for 1)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It&rsquo;s logical to assume that named parameters would work the same way.</p>
+
+<p>Yet if you try this with a method with named parameters, it still runs &ndash; just like how standard parameters use default values for missing arguments!</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">drink</span><span class="p">(</span><span class="ss">spirit</span><span class="p">:</span> <span class="s2">&quot;whiskey&quot;</span><span class="p">)</span> <span class="c1"># spirit = named parameter</span>
+</span><span class='line'>    <span class="s2">&quot;Another </span><span class="si">#{</span><span class="n">spirit</span><span class="si">}</span><span class="s2"> for my friend here, barkeep.&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">drink</span>
+</span><span class='line'>  <span class="c1">#=&gt; &quot;Another #{spirit} for my friend here, barkeep.&quot;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">eat</span><span class="p">(</span><span class="n">snacks</span><span class="o">=</span><span class="s2">&quot;pretzels&quot;</span><span class="p">)</span> <span class="c1"># snacks = standard parameter with default value</span>
+</span><span class='line'>    <span class="s2">&quot;And some </span><span class="si">#{</span><span class="n">snacks</span><span class="si">}</span><span class="s2"> - I&#39;m famished!&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">eat</span>
+</span><span class='line'>  <span class="c1">#=&gt; &quot;And some pretzels - I&#39;m famished!&quot; </span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Sure, this is helpful to have, but it&rsquo;s nothing that we can&rsquo;t do through default parameters.</p>
+
+<p>Then we learned that named parameters don&rsquo;t care about the order in which you call them.</p>
+
+<p>On one hand, neat trick!</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">bootlegger</span><span class="p">(</span><span class="ss">distillery</span><span class="p">:</span> <span class="n">location</span><span class="p">,</span> <span class="ss">source</span><span class="p">:</span> <span class="n">location</span><span class="p">)</span>
+</span><span class='line'>    <span class="s2">&quot;We smuggled the bourbon from </span><span class="si">#{</span><span class="n">source</span><span class="si">}</span><span class="s2">, but we brewed this moonshine in </span><span class="si">#{</span><span class="n">distillery</span><span class="si">}</span><span class="s2">. Dee-licious!&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">bootlegger</span><span class="p">(</span><span class="ss">source</span><span class="p">:</span> <span class="s2">&quot;Canada&quot;</span><span class="p">,</span> <span class="ss">distillery</span><span class="p">:</span> <span class="s2">&quot;Grandma&#39;s old bathtub&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="c1">#=&gt; &quot;We smuggled the bourbon from Canada, but we brewed this moonshine in Grandma&#39;s old bathtub. Dee-licious!&quot; </span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>On the other hand, who cares? This feature is a nice wrinkle, but it doesn&rsquo;t really seem like it warrants the existence of the function.</p>
+
+<p>After a little digging and experimentation, I finally found a reason why named parameters are worth the trouble: They allow methods to require specifically-named parameters when being invoked, for an added measure of security!</p>
+
+<p style="text-align:center;"><img src="http://kamoh.github.io/images/keep_out.jpeg" title="'Oh, you forgot to close your parentheses? Scram!'" ></p>
+
+<p style="text-align:center;"> <em>Source: <a href="https://www.flickr.com/photos/double_seven/4407285444/?rb=1">Flickr</a></em></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">speakeasy_knock</span><span class="p">(</span><span class="ss">password</span><span class="p">:</span> <span class="p">)</span>
+</span><span class='line'>    <span class="s2">&quot;&#39;</span><span class="si">#{</span><span class="n">password</span><span class="si">}</span><span class="s2">&#39;? Good enough for me, come on in!&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">speakeasy_knock</span>
+</span><span class='line'>  <span class="c1">#=&gt; ArgumentError: missing keyword: password</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">speakeasy_knock</span><span class="p">(</span><span class="n">swordfish</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">speakeasy_knock</span><span class="p">(</span><span class="ss">password</span><span class="p">:</span> <span class="s2">&quot;Open up, chump!&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="c1">#=&gt; &quot;&#39;Open up, chump&#39;? Good enough for me, come on in!&quot; </span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Of course, you&rsquo;ll need added security measures beyond just requiring the named parameter. But suddenly, having named parameters available as a tool starts to make sense.</p>
+
+<p>Because standard arguments take input regardless of typing or designation, and because default arguments are fine not taking any input from the method call at all, requiring a named parameter for a method to function gives it a measure of protection against reckless usage.</p>
+
+<p>To strain an already-exhausted metaphor, named parameters are exactly like locked doors that require code words in order to grant entry.</p>
+
+<p style="text-align:center;"><img src="http://kamoh.github.io/images/62014/speakeasy.jpg" title="'Hooray for named parameters and bootlegging, in no particular order!'" ></p>
+
+<p style="text-align:center;"> <em>Source: <a href="http://speakeasy216.com/">Speakeasy216</a></em></p>
+
+<p>For more gory details about this and other functions introduced in Ruby 2.0.0, check out this substantial post by Marc-Andre Lafortune:
+<a href="http://blog.marc-andre.ca/2013/02/23/ruby-2-by-example/">http://blog.marc-andre.ca/2013/02/23/ruby-2-by-example/</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Flatiron School: Two Week Recap]]></title>
