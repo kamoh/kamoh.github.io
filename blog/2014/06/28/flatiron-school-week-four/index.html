@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Flatiron School: Week Three - lolgramming</title>
+  <title>Flatiron School: Week Four - lolgramming</title>
   <meta name="author" content="Ben Serviss">
 
    
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://kamoh.github.io/blog/2014/06/22/flatiron-school-week-three">
+  <link rel="canonical" href="http://kamoh.github.io/blog/2014/06/28/flatiron-school-week-four">
   <link href="/favicon.png" rel="icon">
   <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
@@ -87,7 +87,7 @@
 
   <header>
   <div class="jumbotron">
-    Flatiron School: Week Three
+    Flatiron School: Week Four
 	<h5>
 
 
@@ -100,36 +100,22 @@
   
 
 
-<i class="icon-calendar-empty"></i> <time datetime="2014-06-22T00:12:26-04:00" pubdate data-updated="true">Jun 22<span>nd</span>, 2014</time></h5>
+<i class="icon-calendar-empty"></i> <time datetime="2014-06-28T17:29:01-04:00" pubdate data-updated="true">Jun 28<span>th</span>, 2014</time></h5>
   </div>
 </header>
   <div class="row-fluid">
     <div class="span12">
-      <p>Week three went by incredibly fast. We started off recapping data structure accessing techniques and object orientation, and by Tuesday I could really feel the concepts from the previous weeks finally start to sink in.</p>
+      <p>Week four was a notable turning point. I&rsquo;ve definitely grown comfortable with having all kinds of new topics and tools hurled at me, and rather than frantically trying to cram every bit of information into my head at once, I&rsquo;ve somehow become better at parsing the infodumps for smaller bites of ideas to play with and process.</p>
 
-<p>Of course, just when everything was starting to make sense, we ran full-speed ahead into the next topic! As we dove into database theory and SQL, I could feel the familiar confusion creeping up into everything &ndash; though unlike the utter bafflement I felt for most of last week, this kind of confusion was combined with an unfazed interest in finding out how this stuff works.</p>
+<p>We started off the week with an introduction to Rake tasks, a helpful way to automate common tasks you might perform in a given Ruby development environment. We plowed forward with ActiveRecord&rsquo;s associations, which are essentially macros for generating methods that describe relationships between related columns in database tables.</p>
 
-<p>At this point, I came to a pretty significant realization. Week two was really rough for me since I tried to do as much work as possible by myself, in an attempt to brute force the knowledge into my brain. Meanwhile, the reality of the situation is that a lot of the time I just don&rsquo;t have the innate understanding of these concepts that some of my more advanced classmates seem to have. I just need more time to truly comprehend what&rsquo;s going on on a meaningful level, and that&rsquo;s really OK.</p>
+<p>All of that was well and good, but it was the introduction of ERB that changed everything. ERB, or embedded Ruby, is a templating system that embeds Ruby into HTML pages as they&rsquo;re generated. It&rsquo;s complex to get right &ndash; since you&rsquo;re passing information from the database to the ERB page, it&rsquo;s easy to screw up the data hand-off &ndash; but our first project using it was a real, honest-to-god website in HTML.</p>
 
-<p style="text-align:center;"> <div style="float:right"><iframe class="vine-embed" src="https://vine.co/v/MTwJJn0xpeW/embed/postcard" width="480" height="480" frameborder="0" text-align="right"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script><p style="text-align:center"><em>Some of the guys came up with a new sport, Pillarball.<br>No fatalities yet!</em></p></div></p>
+<p>It may have been an ultra-barebones site, but seeing something you&rsquo;ve coded pop up in the browser after three weeks of command line applications was a welcome change.</p>
 
-<p>So, instead of forcing myself to do everything solo and feeling horrifically inadequate and guilty when I come up short, this week I gave in to asking for help even more than I was last week.</p>
+<p>Once we hit ERB, the material took a sharp turn toward the internet. We went through the overall structure of the internet and how communication works, the different types of http requests, Ruby&rsquo;s Rack webserver interface, and finally Sinatra, a domain-specific language (DSL) designed for easily creating web applications (with a minimal interface that makes Rack look crotchety as hell by comparison).</p>
 
-<p>Almost immediately this replaced a massive amount of the unnecessary frustration I&rsquo;d been feeling with a better pipeline to understanding the material. Basically, it&rsquo;s a choice between three hours spent staring at a problem without making any headway, or asking for help in the first 30 minutes and spending two and half hours practicing what I just learned. I get so much more valuable practice time with the latter that it&rsquo;s almost bizarre how I haven&rsquo;t been operating like this yet.</p>
-
-<p>Around mid-week, we ended up covering even more material:</p>
-
-<ul>
-<li><p>Object relational mapping, the paradigm of mapping rows in a database to instances of a class so you can manipulate data through a program that isn&rsquo;t pure SQL;</p></li>
-<li><p>Ruby modules, class-like libraries of methods similar to C# namespaces and Javascript packages that let you apply abstracted-out functionality across multiple classes;</p></li>
-<li><p>Dynamic dispatch via Ruby&rsquo;s .send method, which lets you send an as-yet-unspecified method to a receiver that you can specify on the fly (pretty cool, once you get the gist of it);</p></li>
-<li><p>Introspection, a totally insane abstract object-orientated pattern that lets you easily create entire database structures that are completely based on custom data values. This is a complex topic and I don&rsquo;t understand every facet of it yet, but this lecture was MIND-BLOWING!</p></li>
-</ul>
-
-
-<p>We also started including directories with files into our applications, which is exciting since it&rsquo;s one small step toward making programs that interact with the outside world.</p>
-
-<p>To summarize, it was a hectic week that went super fast, and I&rsquo;m starting to get the hang of things here. Most importantly, I&rsquo;m grateful for getting a new perspective on how to go about learning for the rest of the class that&rsquo;ll definitely come in handy even outside of programming.</p>
+<p>Until we get to Rails, it looks like we&rsquo;ll be fine-tuning everything we&rsquo;ve learned up to now in Sinatra. It&rsquo;s definitely tricky, but I&rsquo;m really liking playing around with Sinatra &ndash; and seeing the results pop up in an actual browser only hints at all the awesomeness still to come.</p>
 
     </div>
   </div>
@@ -151,6 +137,8 @@
   <a href="/blog/categories/flatiron-school/"><span class="badge">Flatiron School</span></a>
 
   <a href="/blog/categories/learning/"><span class="badge">Learning</span></a>
+
+  <a href="/blog/categories/sinatra/"><span class="badge">Sinatra</span></a>
 
 
 
@@ -182,10 +170,8 @@
       <div class="span12">
         <p class="meta">
           
-            <a class="basic-alignment left" href="/blog/2014/06/20/named-parameters-whats-a-nice-keyword-argument-like-you-doing-in-a-place-like-this/" title="Previous Post: Named Parameters: What's A Nice Keyword Argument Like You Doing in a Place Like This?">&laquo; Named Parameters: What's A Nice Keyword Argument Like You Doing in a Place Like This?</a>
+            <a class="basic-alignment left" href="/blog/2014/06/22/flatiron-school-week-three/" title="Previous Post: Flatiron School: Week Three">&laquo; Flatiron School: Week Three</a>
           
-          
-            <a class="basic-alignment right" href="/blog/2014/06/28/flatiron-school-week-four/" title="Next Post: Flatiron School: Week Four">Flatiron School: Week Four &raquo;</a>
           
         </p>
       </div>
@@ -223,8 +209,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://kamoh.github.io/blog/2014/06/22/flatiron-school-week-three/';
-        var disqus_url = 'http://kamoh.github.io/blog/2014/06/22/flatiron-school-week-three/';
+        var disqus_identifier = 'http://kamoh.github.io/blog/2014/06/28/flatiron-school-week-four/';
+        var disqus_url = 'http://kamoh.github.io/blog/2014/06/28/flatiron-school-week-four/';
         var disqus_script = 'embed.js';
       
     (function () {

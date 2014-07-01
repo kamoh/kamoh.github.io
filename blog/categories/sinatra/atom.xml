@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Sinatra | lolgramming]]></title>
+  <link href="http://kamoh.github.io/blog/categories/sinatra/atom.xml" rel="self"/>
+  <link href="http://kamoh.github.io/"/>
+  <updated>2014-07-01T00:04:37-04:00</updated>
+  <id>http://kamoh.github.io/</id>
+  <author>
+    <name><![CDATA[Ben Serviss]]></name>
+    <email><![CDATA[ben.serviss@flatironschool.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Flatiron School: Week Four]]></title>
+    <link href="http://kamoh.github.io/blog/2014/06/28/flatiron-school-week-four/"/>
+    <updated>2014-06-28T17:29:01-04:00</updated>
+    <id>http://kamoh.github.io/blog/2014/06/28/flatiron-school-week-four</id>
+    <content type="html"><![CDATA[<p>Week four was a notable turning point. I&rsquo;ve definitely grown comfortable with having all kinds of new topics and tools hurled at me, and rather than frantically trying to cram every bit of information into my head at once, I&rsquo;ve somehow become better at parsing the infodumps for smaller bites of ideas to play with and process.</p>
+
+<p>We started off the week with an introduction to Rake tasks, a helpful way to automate common tasks you might perform in a given Ruby development environment. We plowed forward with ActiveRecord&rsquo;s associations, which are essentially macros for generating methods that describe relationships between related columns in database tables.</p>
+
+<p>All of that was well and good, but it was the introduction of ERB that changed everything. ERB, or embedded Ruby, is a templating system that embeds Ruby into HTML pages as they&rsquo;re generated. It&rsquo;s complex to get right &ndash; since you&rsquo;re passing information from the database to the ERB page, it&rsquo;s easy to screw up the data hand-off &ndash; but our first project using it was a real, honest-to-god website in HTML.</p>
+
+<p>It may have been an ultra-barebones site, but seeing something you&rsquo;ve coded pop up in the browser after three weeks of command line applications was a welcome change.</p>
+
+<p>Once we hit ERB, the material took a sharp turn toward the internet. We went through the overall structure of the internet and how communication works, the different types of http requests, Ruby&rsquo;s Rack webserver interface, and finally Sinatra, a domain-specific language (DSL) designed for easily creating web applications (with a minimal interface that makes Rack look crotchety as hell by comparison).</p>
+
+<p>Until we get to Rails, it looks like we&rsquo;ll be fine-tuning everything we&rsquo;ve learned up to now in Sinatra. It&rsquo;s definitely tricky, but I&rsquo;m really liking playing around with Sinatra &ndash; and seeing the results pop up in an actual browser only hints at all the awesomeness still to come.</p>
+]]></content>
+  </entry>
+  
+</feed>
