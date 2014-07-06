@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Flatiron School | lolgramming]]></title>
   <link href="http://kamoh.github.io/blog/categories/flatiron-school/atom.xml" rel="self"/>
   <link href="http://kamoh.github.io/"/>
-  <updated>2014-07-01T00:04:37-04:00</updated>
+  <updated>2014-07-06T18:52:25-04:00</updated>
   <id>http://kamoh.github.io/</id>
   <author>
     <name><![CDATA[Ben Serviss]]></name>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Flatiron School: Week Five]]></title>
+    <link href="http://kamoh.github.io/blog/2014/07/05/flatiron-school-week-five/"/>
+    <updated>2014-07-05T18:36:53-04:00</updated>
+    <id>http://kamoh.github.io/blog/2014/07/05/flatiron-school-week-five</id>
+    <content type="html"><![CDATA[<p>This week, we focused on working in Sinatra as much as possible. It&rsquo;s really a nifty tool for quickly creating web apps.</p>
+
+<p>Getting the hang of handling user request data through Sinatra&rsquo;s params hash and forms took a little while, but even during the confusing parts I was more curious about why something wasn&rsquo;t working than frustrated. The thrill of the bug hunt is getting harder and harder to deny as this class goes on.</p>
+
+<p>We also dove into RESTful practices, handling route variables for Sinatra&rsquo;s controllers, and started moving into holistic full-stack testing as opposed to the unit tests we&rsquo;ve been doing so far.</p>
+
+<p>I&rsquo;ve also been sick since Thursday, and have been having the same bizarre Sinatra dream of not being able to specify the right route to get to the index page. If only they had binding.pry for sick dreams!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Flatiron School: Week Four]]></title>
@@ -183,23 +198,6 @@ Of course, you&rsquo;ll need added security measures beyond just requiring the n
 <p>By the end of the week, I was filled with a totally bizarre combination of emotions &ndash; exhilaration from learning so much, bafflement at still not being able to implement the solutions that I could visualize, disappointment at not understanding at a faster pace, and a surreal sense of accomplishment of how far I&rsquo;ve come in understanding programming logic since the class had begun.</p>
 
 <p>Overall, these first weeks have impressed upon me the supreme importance of working with others to overcome problems, and of shifting your mindset to make room for better solutions to present themselves. One of my main goals for the summer is to develop a better programming mindset when approaching problems, and though there&rsquo;s a long way to go, after these first weeks I can slowly feeling it start to take shape.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Why Learn to Program?]]></title>
-    <link href="http://kamoh.github.io/blog/2014/05/27/why-learn-to-program/"/>
-    <updated>2014-05-27T10:10:07-04:00</updated>
-    <id>http://kamoh.github.io/blog/2014/05/27/why-learn-to-program</id>
-    <content type="html"><![CDATA[<p>Starting on the first week of June, I&rsquo;ll be starting as a web development student at the <a href="http://www.flatironschool.com">Flatiron School</a>. The course is full-time intensive, meeting every day from 9-6 for twelve weeks. Students enter as programming newbies and leave as employed, full-stack web developers.</p>
-
-<p>Since graduating from college, I&rsquo;d been working in the video game industry as a designer and producer. So why the switch to programming?</p>
-
-<p>I&rsquo;ve always been interested in how computers work. Though I&rsquo;ve long messed around with light coding, websites and scripting here and there over the past ten years, I&rsquo;ve never sat down to formally learn it (aside from two poorly-taught classes in high school and college). After a <a href="http://weatherlightus.tumblr.com/">friend of mine</a> went through Flatiron&rsquo;s program, his constant praise for the experience piqued my interest, and after getting accepted, I decided to go.</p>
-
-<p>However, curiosity in programming is more than just a long-time interest. The world today runs on software, especially over the web. If you&rsquo;re able to not only understand how the web works, but capable of creating your own tools that leverage it, you wield immense power. I&rsquo;ve always valued being a creator over just being a consumer, and the knowledge I hope to gain from this class will push me even further to the former.</p>
-
-<p>Over the course of the class, I&rsquo;ll be posting updates and thoughts in this blog. It&rsquo;s going to be an interesting summer.</p>
 ]]></content>
   </entry>
   
