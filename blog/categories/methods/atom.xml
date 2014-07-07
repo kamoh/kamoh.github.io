@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Methods | lolgramming]]></title>
   <link href="http://kamoh.github.io/blog/categories/methods/atom.xml" rel="self"/>
   <link href="http://kamoh.github.io/"/>
-  <updated>2014-07-06T18:53:03-04:00</updated>
+  <updated>2014-07-06T21:27:00-04:00</updated>
   <id>http://kamoh.github.io/</id>
   <author>
     <name><![CDATA[Ben Serviss]]></name>
@@ -84,7 +84,7 @@ On the other hand, who cares? This feature is a nice wrinkle, but it doesn&rsquo
 
 <p>After a little digging and experimentation, I finally found a reason why named parameters are worth the trouble: They allow methods to require specifically-named parameters when being invoked, for an added measure of security!</p>
 
-<p style="text-align:center;"><img src="/images/keep_out.jpeg" title="&lsquo;Oh, you forgot to close your parentheses? Scram!&rsquo;" ></p>
+<p style="text-align:center;"><img src="/images/keep_out.jpeg" title="Oh, you forgot to close your parentheses? Scram!" ></p>
 
 <p style="text-align:center;"> <em>Source: <a href="https://www.flickr.com/photos/double_seven/4407285444/?rb=1">Flickr</a></em></p>
 
@@ -108,7 +108,7 @@ Of course, you&rsquo;ll need added security measures beyond just requiring the n
 
 <p>To strain an already-exhausted metaphor, in certain use cases, named parameters can act exactly like locked doors that require code words in order to grant entry.</p>
 
-<p style="text-align:center;"><img src="/images/62014/speakeasy.jpg" title="&lsquo;Hooray for named parameters and bootlegging, in no particular order!&rsquo;" ></p>
+<p style="text-align:center;"><img src="/images/62014/speakeasy.jpg" title="Hooray for named parameters and bootlegging, in no particular order!" ></p>
 
 <p style="text-align:center;"> <em>Source: <a href="http://speakeasy216.com/">Speakeasy216</a></em></p>
 

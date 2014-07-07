@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Alan Heller | lolgramming]]></title>
+  <link href="http://kamoh.github.io/blog/categories/alan-heller/atom.xml" rel="self"/>
+  <link href="http://kamoh.github.io/"/>
+  <updated>2014-07-06T21:27:00-04:00</updated>
+  <id>http://kamoh.github.io/</id>
+  <author>
+    <name><![CDATA[Ben Serviss]]></name>
+    <email><![CDATA[ben.serviss@flatironschool.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[The Curious Chairs of the Flatiron School]]></title>
+    <link href="http://kamoh.github.io/blog/2014/07/06/the-curious-chairs-of-the-flatiron-school/"/>
+    <updated>2014-07-06T19:17:32-04:00</updated>
+    <id>http://kamoh.github.io/blog/2014/07/06/the-curious-chairs-of-the-flatiron-school</id>
+    <content type="html"><![CDATA[<p>The first time I walked into The Flatiron School, I thought to myself: &ldquo;What are these crazy orange things?&rdquo;</p>
+
+<p>I had come to one of the weekly <a href="http://www.meetup.com/nyc-on-rails/">NYC on Rails</a> meetups in December of 2013 to check out the vibe and decide if I wanted to apply to the Ruby program. Strewn about the main meeting space were knee-high, accordion-esque bright orange&hellip; things.</p>
+
+<p>Were they chairs? Were they stools? Were they the missing business ends of giant toddler-sized <a href="http://thumb9.shutterstock.com/display_pic_with_logo/710830/710830,1300264918,2/stock-photo-red-and-yellow-child-s-toy-hammer-73266583.jpg">toy hammers</a>?</p>
+
+<p style="text-align:center;"><img class="left" src="/images/7614/nyc_on_rails_dec_13_meetup.jpg" width="450" title="NYC on Rails meetup in December, 2013. I&rsquo;m in the middle (somewhere)." ></p>
+
+<p>Spoiler: They turned out to be chairs. Ergonomic chairs, in fact, created by designer <a href="http://www.stylepark.com/en/designer/alan-heller">Alan Heller</a>. The <a href="http://www.ergoergo.com">ErgoErgo</a> chairs (as they&rsquo;re officially called) were designed to encourage active sitting, relying on the sittee&rsquo;s core muscles for stability as you rock gently back and forth.</p>
+
+<p>Once I had gotten used to the concept, using the chair turned out to be fun in its own novel way. Figuring out how to best use the chair added a playful dimension in talking to the other meetuppers, helping ground the evening in a more open-minded mood.</p>
+
+<p>Now that I&rsquo;m a full-time student at Flatiron, I&rsquo;ve noticed how easily my classmates have incorporated the chairs into their routines. Since they&rsquo;re so modular and light, it&rsquo;s easy to grab a few and turn any table into a lunch spot or meeting area; use one as a footrest; or even corral a bunch into a nifty nap corner. In just a matter of weeks, the ubiquity of these strange little chairs had become a given.</p>
+
+<p>Cool, right? There&rsquo;s something else entirely that explains why these peculiar little chairs fit in so well here &ndash; and it&rsquo;s because <b>the entire process of encountering, evaluating, interacting and experimenting with them is a perfect metaphor for learning to program.</b></p>
+
+<p><img class="right" src="/images/7614/nap_time.jpg" width="420" title="Sometimes, the call of the nap proves irresistible." ></p>
+
+<p>Upon first glance, ErgoErgo doesn&rsquo;t look like any chair that belongs in an office setting &ndash; there&rsquo;s no back, they&rsquo;re too short, the shape is wrong, the color is far too bright &ndash; and you&rsquo;re immediately thrown out of your comfort zone, just as someone new to programming is quickly buried in confusion.</p>
+
+<p>Then, as you figure out that it&rsquo;s just another type of chair, you try sitting on it and gradually learn how it operates &ndash; how much rocking you like, how much give each side allows, etc. This is analogous to the long acclimation phase of learning to program &ndash; deciphering what error messages mean, how data structures behave, what kind of commands are expected, and so forth.</p>
+
+<p>Finally, as you accept ErgoErgo&rsquo;s new definition of what a chair can mean, you grow comfortable in its use &ndash; turning something that was strange and unfamiliar moments ago into something you totally understand. It goes without saying that the programming equivalent to this stage is rather long, but the metaphor is already complete. Something that once beguiled you as intimidating or impossible is now something eminently knowable, with time and experience the only obstacles to an increased understanding.</p>
+
+<blockquote><p>The entire process of encountering, evaluating, interacting and experimenting with them is a perfect metaphor for learning to program.</p></blockquote>
+
+<p>A major part of becoming a programmer is mental. The mental shift from &ldquo;I need a programmer to help me&rdquo; when faced with a technical problem to &ldquo;I can figure this out&rdquo; is an important one; the transition from being frustrated with code defects to being driven by curiosity to find the problem is critical in staying motivated to improve.</p>
+
+<p>As much as I may be reading into this, and as off-the-wall a metaphor it may seem, having these odd chairs around as I&rsquo;m trying to mold myself into a programmer is a constant reminder that what may seem unfamiliar and alien one day may become familiar, welcome and fun the next.</p>
+]]></content>
+  </entry>
+  
+</feed>
