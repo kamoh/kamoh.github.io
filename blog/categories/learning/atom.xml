@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Learning | lolgramming]]></title>
   <link href="http://kamoh.github.io/blog/categories/learning/atom.xml" rel="self"/>
   <link href="http://kamoh.github.io/"/>
-  <updated>2014-07-06T22:21:03-04:00</updated>
+  <updated>2014-07-14T23:02:27-04:00</updated>
   <id>http://kamoh.github.io/</id>
   <author>
     <name><![CDATA[Ben Serviss]]></name>
@@ -12,6 +12,27 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Flatiron School: Week Six]]></title>
+    <link href="http://kamoh.github.io/blog/2014/07/12/flatiron-school-week-six/"/>
+    <updated>2014-07-12T22:22:03-04:00</updated>
+    <id>http://kamoh.github.io/blog/2014/07/12/flatiron-school-week-six</id>
+    <content type="html"><![CDATA[<p>This was a big one. On Monday, we finally started working with Rails. Especially coming from Sinatra, the size and heft of Rails was immediately apparent. Rails is a powerful framework to be sure, but since there&rsquo;s so much going on, it can feel confusing when trying to figure out exactly how some of its abstracted methods operate.</p>
+
+<p>For example, Rails' form builder is a helpful way to build out both simple and complex forms using a more minimalist approach &ndash; yet its heavy reliance on internal methods abstracted several layers below the surface lends it a steep learning curve for most of the students. This dynamic seems to be par for the course for Rails in general.</p>
+
+<p>While there is definitely a ton of utility to be gained from having such tools available, there is a danger of treating these features like a black box. Fortunately, nearly all of us have enough innate curiosity and dogged determination to find out just what is exactly going on under the hood.</p>
+
+<p style="text-align:center;"> <div style="float:right"><iframe class="vine-embed" src="https://vine.co/v/MxvTl3mtaE1/embed/postcard" width="480" height="480" frameborder="0" text-align="right"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script><p style="text-align:center"><em>It&rsquo;s hard work, but code monkeys gotta unwind too.</em></p></div></p>
+
+<p>We were also introduced to Rails' router, which acts as an intermediary for page requests between the user&rsquo;s view and the controllers; both form builder and form tags for creating intelligent forms; partials (to help break out commong header and navigation elements away from the main page templates); validation and other callbacks; and authentication through creating and maintaining sessions.</p>
+
+<p>Outside of class, on fellow student <a href="http://callahanchris.github.io/">Chris Callhan</a>&rsquo;s suggestion I started reading <a href="http://www.amazon.com/Practical-Object-Oriented-Design-Ruby-Addison-Wesley/dp/0321721330">Practical Object-Oriented Programming in Ruby</a> by Sandi Metz, aka POODR. Hilarious acronym aside, Metz&rsquo;s book breaks down the rationale behind object-oriented programming, and shows just why it&rsquo;s so important. Gaining an new perspective outside of class materials and projects is defintely helpful in maintaining a cohesive point of view on what we&rsquo;re learning and how it all fits together.</p>
+
+<p>It&rsquo;s inspiring and humbling to know that, even once I figure out the fundamentals of programming, there&rsquo;s still a lifetime of techniques and best practices to learn.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Flatiron School: Week Five]]></title>
