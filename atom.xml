@@ -4,7 +4,7 @@
   <title><![CDATA[lolgramming]]></title>
   <link href="http://kamoh.github.io/atom.xml" rel="self"/>
   <link href="http://kamoh.github.io/"/>
-  <updated>2014-07-21T02:10:57-04:00</updated>
+  <updated>2014-07-21T02:12:12-04:00</updated>
   <id>http://kamoh.github.io/</id>
   <author>
     <name><![CDATA[Ben Serviss]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Utterly Insane Data Structures]]></title>
-    <link href="http://kamoh.github.io/blog/2014/07/20/my-stacketh-overflow/"/>
+    <link href="http://kamoh.github.io/blog/2014/07/20/utterly-insane-data-structures/"/>
     <updated>2014-07-20T21:41:07-04:00</updated>
-    <id>http://kamoh.github.io/blog/2014/07/20/my-stacketh-overflow</id>
+    <id>http://kamoh.github.io/blog/2014/07/20/utterly-insane-data-structures</id>
     <content type="html"><![CDATA[<p>The process of learning something completely new is a strangely tiered experience. More than anything else, the past seven weeks have felt like falling down a very deep pit, and gradually climbing out. The tricky part is, since you&rsquo;re so focused on climbing up, you can&rsquo;t actually tell when you&rsquo;ve climbed past where you fell in &ndash; all you know is to keep going.</p>
 
 <p>Once you get into this groove, it can start to feel comfortable. On the other hand, staying humble and keeping a beginner&rsquo;s mind is paramount to staying receptive and curious.</p>
