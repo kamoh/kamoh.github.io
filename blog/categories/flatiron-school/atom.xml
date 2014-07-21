@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Flatiron School | lolgramming]]></title>
   <link href="http://kamoh.github.io/blog/categories/flatiron-school/atom.xml" rel="self"/>
   <link href="http://kamoh.github.io/"/>
-  <updated>2014-07-14T23:03:22-04:00</updated>
+  <updated>2014-07-20T21:40:02-04:00</updated>
   <id>http://kamoh.github.io/</id>
   <author>
     <name><![CDATA[Ben Serviss]]></name>
@@ -12,6 +12,31 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Flatiron School: Week Seven]]></title>
+    <link href="http://kamoh.github.io/blog/2014/07/19/flatiron-school-week-seven/"/>
+    <updated>2014-07-19T18:57:47-04:00</updated>
+    <id>http://kamoh.github.io/blog/2014/07/19/flatiron-school-week-seven</id>
+    <content type="html"><![CDATA[<p>Something clicked this week. Between starting JavaScript on Wednesday, a great morning project using Spotify&rsquo;s API, and becoming even more comfortable withstanding torrents of new information, I&rsquo;m starting to feel like a programmer. It&rsquo;s not only that &ndash; when I look around at the other students, I no longer see people who came here because they wanted to learn how to program. I just see more programmers.</p>
+
+<p>It&rsquo;s an exhilarating, confounding, amazing feeling.</p>
+
+<p>On Monday and Tuesday we barreled through most of the remaining Rails topics &ndash; some more details on using sessions to track user logins, Rails' asset pipeline, and AREL for handling complex database queries. AREL in particular was difficult to get through, since you are drilling down through AREL&rsquo;s syntax to the base SQL below, but it&rsquo;s easy to see how powerful it can be once you learn how to properly use it.</p>
+
+<p>We also covered self-referential associations, in cases where you want to refer to a join table&rsquo;s column by a different name, and spent a little time looking at JSON&rsquo;s parsing with Spotify&rsquo;s web API (which was a lot of fun!).</p>
+
+<p>On Wednesday, we dove into JavaScript. Most of us were excited to learn about it since we&rsquo;ve all been dying to start playing around with more user-facing elements of web development, and despite its cranky syntax, the consensus among most of the students is that JS and jQuery are great tools.</p>
+
+<p style="text-align:center;"> <div style="float:right"><script type="text/javascript" src="http://video.foxbusiness.com/v/embed.js?id=3670694770001&w=466&h=263">texty</script><p text-align="right"><i>Fox Business came to the campus a few weeks ago to do a segment.<br>I&rsquo;m literally coding with my back against the wall at 1:02 &amp; 3:40.</i></p></div></p>
+
+<p>The most satisfying part of working with JavaScript has been how relatively easy it&rsquo;s been to pick up. Before Flatiron, when I&rsquo;d try to learn programming every other year or so, I would spend a week trying online courses and exercises before giving up in frustration.</p>
+
+<p>Now, not only has it been weirdly smooth picking up an entirely new language, but I keep seeing so many similarities between JS and Ruby that make learning it even easier. Aside from components present in every programming language like strings and arrays, seeing similarities like how JavaScript&rsquo;s &lsquo;this&rsquo; mirror&rsquo;s Ruby&rsquo;s &lsquo;self&rsquo; makes it so much easier to get a grasp on a new language.</p>
+
+<p>I&rsquo;ve also been going to the school on Saturday and Sunday for at least two weeks now, and plan on doing so until the end of the course. My group has started working on our group project, and we still have a lot of work to do before we present on August 5th. But even though I&rsquo;m literally there every day, I can&rsquo;t wait to finish this blog post and get back to work.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Flatiron School: Week Six]]></title>
@@ -102,39 +127,6 @@
 <p>Once we hit ERB, the material took a sharp turn toward the internet. We went through the overall structure of the internet and how communication works, the different types of http requests, Ruby&rsquo;s Rack webserver interface, and finally Sinatra, a domain-specific language (DSL) designed for easily creating web applications (with a minimal interface that makes Rack look crotchety as hell by comparison).</p>
 
 <p>Until we get to Rails, it looks like we&rsquo;ll be fine-tuning everything we&rsquo;ve learned up to now in Sinatra. It&rsquo;s definitely tricky, but I&rsquo;m really liking playing around with Sinatra &ndash; and seeing the results pop up in an actual browser only hints at all the awesomeness still to come.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Flatiron School: Week Three]]></title>
-    <link href="http://kamoh.github.io/blog/2014/06/22/flatiron-school-week-three/"/>
-    <updated>2014-06-22T00:12:26-04:00</updated>
-    <id>http://kamoh.github.io/blog/2014/06/22/flatiron-school-week-three</id>
-    <content type="html"><![CDATA[<p>Week three went by incredibly fast. We started off recapping data structure accessing techniques and object orientation, and by Tuesday I could really feel the concepts from the previous weeks finally start to sink in.</p>
-
-<p>Of course, just when everything was starting to make sense, we ran full-speed ahead into the next topic! As we dove into database theory and SQL, I could feel the familiar confusion creeping up into everything &ndash; though unlike the utter bafflement I felt for most of last week, this kind of confusion was combined with an unfazed interest in finding out how this stuff works.</p>
-
-<p>At this point, I came to a pretty significant realization. Week two was really rough for me since I tried to do as much work as possible by myself, in an attempt to brute force the knowledge into my brain. Meanwhile, the reality of the situation is that a lot of the time I just don&rsquo;t have the innate understanding of these concepts that some of my more advanced classmates seem to have. I just need more time to truly comprehend what&rsquo;s going on on a meaningful level, and that&rsquo;s really OK.</p>
-
-<p style="text-align:center;"> <div style="float:right"><iframe class="vine-embed" src="https://vine.co/v/MTwJJn0xpeW/embed/postcard" width="480" height="480" frameborder="0" text-align="right"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script><p style="text-align:center"><em>Some of the guys came up with a new sport, Pillarball.<br>No fatalities yet!</em></p></div></p>
-
-<p>So, instead of forcing myself to do everything solo and feeling horrifically inadequate and guilty when I come up short, this week I gave in to asking for help even more than I was last week.</p>
-
-<p>Almost immediately this replaced a massive amount of the unnecessary frustration I&rsquo;d been feeling with a better pipeline to understanding the material. Basically, it&rsquo;s a choice between three hours spent staring at a problem without making any headway, or asking for help in the first 30 minutes and spending two and half hours practicing what I just learned. I get so much more valuable practice time with the latter that it&rsquo;s almost bizarre how I haven&rsquo;t been operating like this yet.</p>
-
-<p>Around mid-week, we ended up covering even more material:</p>
-
-<ul>
-<li><p>Object relational mapping, the paradigm of mapping rows in a database to instances of a class so you can manipulate data through a program that isn&rsquo;t pure SQL;</p></li>
-<li><p>Ruby modules, class-like libraries of methods similar to C# namespaces and Javascript packages that let you apply abstracted-out functionality across multiple classes;</p></li>
-<li><p>Dynamic dispatch via Ruby&rsquo;s .send method, which lets you send an as-yet-unspecified method to a receiver that you can specify on the fly (pretty cool, once you get the gist of it);</p></li>
-<li><p>Introspection, a totally insane abstract object-orientated pattern that lets you easily create entire database structures that are completely based on custom data values. This is a complex topic and I don&rsquo;t understand every facet of it yet, but this lecture was MIND-BLOWING!</p></li>
-</ul>
-
-
-<p>We also started including directories with files into our applications, which is exciting since it&rsquo;s one small step toward making programs that interact with the outside world.</p>
-
-<p>To summarize, it was a hectic week that went super fast, and I&rsquo;m starting to get the hang of things here. Most importantly, I&rsquo;m grateful for getting a new perspective on how to go about learning for the rest of the class that&rsquo;ll definitely come in handy even outside of programming.</p>
 ]]></content>
   </entry>
   
