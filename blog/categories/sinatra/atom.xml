@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Sinatra | lolgramming]]></title>
   <link href="http://kamoh.github.io/blog/categories/sinatra/atom.xml" rel="self"/>
   <link href="http://kamoh.github.io/"/>
-  <updated>2014-07-21T02:13:35-04:00</updated>
+  <updated>2014-07-29T00:47:44-04:00</updated>
   <id>http://kamoh.github.io/</id>
   <author>
     <name><![CDATA[Ben Serviss]]></name>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Flatiron School: Week Eight]]></title>
+    <link href="http://kamoh.github.io/blog/2014/07/28/flatiron-school-week-eight/"/>
+    <updated>2014-07-28T00:27:10-04:00</updated>
+    <id>http://kamoh.github.io/blog/2014/07/28/flatiron-school-week-eight</id>
+    <content type="html"><![CDATA[<p>Week eight marked our second (and last) week of JavaScript. We worked with some of JS&rsquo;s unique peculiarities, specifically dealing with closures, immediately-invoked functional expressions (or IIFEs), and how hoisting affects variable scope.</p>
+
+<p>We also spent more time on the details involved in the relationship between prototypes, constructors and instances; the call and apply methods (and how they&rsquo;re similar to Ruby&rsquo;s send method); and how JavaScript handles classes.</p>
+
+<p>We finished up the week working with JSON and AJAX. While I find JSON-formatted data to be really interesting, especially in how it enables data transmissions between different kinds of programs (written in different languages, even!), the subtleties involved in using AJAX correctly are a little overwhelming.</p>
+
+<p>It&rsquo;s obviously a very powerful tool for creating a seamless online experience, but like most things in programming, there&rsquo;s much more to it than you think.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Flatiron School: Week Four]]></title>
