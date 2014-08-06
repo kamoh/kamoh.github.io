@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Flatiron School | lolgramming]]></title>
   <link href="http://kamoh.github.io/blog/categories/flatiron-school/atom.xml" rel="self"/>
   <link href="http://kamoh.github.io/"/>
-  <updated>2014-07-29T00:47:44-04:00</updated>
+  <updated>2014-08-06T00:24:21-04:00</updated>
   <id>http://kamoh.github.io/</id>
   <author>
     <name><![CDATA[Ben Serviss]]></name>
@@ -12,6 +12,27 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Flatiron School Week Nine: Project Mode!]]></title>
+    <link href="http://kamoh.github.io/blog/2014/08/02/flatiron-school-week-nine/"/>
+    <updated>2014-08-02T22:12:45-04:00</updated>
+    <id>http://kamoh.github.io/blog/2014/08/02/flatiron-school-week-nine</id>
+    <content type="html"><![CDATA[<p>Things are starting to come to a head. We started off the week with our last crop of lectures on AJAX and using JSON in Rails, then began project mode!</p>
+
+<p>From here on out until the end of the course, we&rsquo;ll be working in groups to make real web applications in lieu of lectures. The first week was a success &ndash; working on our own projects is immediately much more rewarding than completing assignments, and everyone managed to put together some really impressive sites by the end of the week.</p>
+
+<p style="text-align:center;"><img class="left" src="/images/8514/when_to_wear_it_main.png" width="550" title="WhenToWearIt" ></p>
+
+<p>I&rsquo;m particularly proud of how my group&rsquo;s project turned out. It&rsquo;s called WhenToWearIt, and it&rsquo;s an outfit organizer that not only lets you organize your favorite outfit and clothing combinations, but it&rsquo;ll help you keep track of who you saw when you wore them to avoid seeming like you only own one outfit. Plus it also makes recommendations based on your wardrobe and preferences!</p>
+
+<p style="text-align:center;"><img class="right" src="/images/8514/when_to_wear_it_dash.png" width="450" title="WhenToWearIt" ></p>
+
+<p>While I&rsquo;m not exactly the target audience, I really liked the idea of producing something that women would find useful. I personally think they&rsquo;re an under-served audience in many ways, and more than a few female classmates said that they&rsquo;d use it when we release the finished version!</p>
+
+<p>It&rsquo;s almost complete, but there&rsquo;s still some work to do to finish up the login system and some final polishing. I can&rsquo;t wait to finally launch something that will <em>actually</em> be useful to people!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Flatiron School: Week Eight]]></title>
@@ -108,21 +129,6 @@
 <p>A major part of becoming a programmer is mental. The mental shift from &ldquo;I need a programmer to help me&rdquo; when faced with a technical problem to &ldquo;I can figure this out&rdquo; is an important one; the transition from being frustrated with code defects to being driven by curiosity to find the problem is critical in staying motivated to improve.</p>
 
 <p>As much as I may be reading into this, and as off-the-wall a metaphor it may seem, having these odd chairs around as I&rsquo;m trying to mold myself into a programmer is a constant reminder that what may seem unfamiliar and alien one day may become familiar, welcome and fun the next.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Flatiron School: Week Five]]></title>
-    <link href="http://kamoh.github.io/blog/2014/07/05/flatiron-school-week-five/"/>
-    <updated>2014-07-05T18:36:53-04:00</updated>
-    <id>http://kamoh.github.io/blog/2014/07/05/flatiron-school-week-five</id>
-    <content type="html"><![CDATA[<p>This week, we focused on working in Sinatra as much as possible. It&rsquo;s really a nifty tool for quickly creating web apps.</p>
-
-<p>Getting the hang of handling user request data through Sinatra&rsquo;s params hash and forms took a little while, but even during the confusing parts I was more curious about why something wasn&rsquo;t working than frustrated. The thrill of the bug hunt is getting harder and harder to deny as this class goes on.</p>
-
-<p>We also dove into RESTful practices, handling route variables for Sinatra&rsquo;s controllers, and started moving into holistic full-stack testing as opposed to the unit tests we&rsquo;ve been doing so far.</p>
-
-<p>I&rsquo;ve also been sick since Thursday, and have been having the same bizarre Sinatra dream of not being able to specify the right route to get to the index page. If only they had binding.pry for sick dreams!</p>
 ]]></content>
   </entry>
   

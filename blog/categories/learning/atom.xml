@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Learning | lolgramming]]></title>
   <link href="http://kamoh.github.io/blog/categories/learning/atom.xml" rel="self"/>
   <link href="http://kamoh.github.io/"/>
-  <updated>2014-07-29T00:47:44-04:00</updated>
+  <updated>2014-08-06T00:24:21-04:00</updated>
   <id>http://kamoh.github.io/</id>
   <author>
     <name><![CDATA[Ben Serviss]]></name>
@@ -12,6 +12,27 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Flatiron School Week Nine: Project Mode!]]></title>
+    <link href="http://kamoh.github.io/blog/2014/08/02/flatiron-school-week-nine/"/>
+    <updated>2014-08-02T22:12:45-04:00</updated>
+    <id>http://kamoh.github.io/blog/2014/08/02/flatiron-school-week-nine</id>
+    <content type="html"><![CDATA[<p>Things are starting to come to a head. We started off the week with our last crop of lectures on AJAX and using JSON in Rails, then began project mode!</p>
+
+<p>From here on out until the end of the course, we&rsquo;ll be working in groups to make real web applications in lieu of lectures. The first week was a success &ndash; working on our own projects is immediately much more rewarding than completing assignments, and everyone managed to put together some really impressive sites by the end of the week.</p>
+
+<p style="text-align:center;"><img class="left" src="/images/8514/when_to_wear_it_main.png" width="550" title="WhenToWearIt" ></p>
+
+<p>I&rsquo;m particularly proud of how my group&rsquo;s project turned out. It&rsquo;s called WhenToWearIt, and it&rsquo;s an outfit organizer that not only lets you organize your favorite outfit and clothing combinations, but it&rsquo;ll help you keep track of who you saw when you wore them to avoid seeming like you only own one outfit. Plus it also makes recommendations based on your wardrobe and preferences!</p>
+
+<p style="text-align:center;"><img class="right" src="/images/8514/when_to_wear_it_dash.png" width="450" title="WhenToWearIt" ></p>
+
+<p>While I&rsquo;m not exactly the target audience, I really liked the idea of producing something that women would find useful. I personally think they&rsquo;re an under-served audience in many ways, and more than a few female classmates said that they&rsquo;d use it when we release the finished version!</p>
+
+<p>It&rsquo;s almost complete, but there&rsquo;s still some work to do to finish up the login system and some final polishing. I can&rsquo;t wait to finally launch something that will <em>actually</em> be useful to people!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Flatiron School: Week Eight]]></title>
@@ -86,25 +107,6 @@
 <p>We also dove into RESTful practices, handling route variables for Sinatra&rsquo;s controllers, and started moving into holistic full-stack testing as opposed to the unit tests we&rsquo;ve been doing so far.</p>
 
 <p>I&rsquo;ve also been sick since Thursday, and have been having the same bizarre Sinatra dream of not being able to specify the right route to get to the index page. If only they had binding.pry for sick dreams!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Flatiron School: Week Four]]></title>
-    <link href="http://kamoh.github.io/blog/2014/06/28/flatiron-school-week-four/"/>
-    <updated>2014-06-28T17:29:01-04:00</updated>
-    <id>http://kamoh.github.io/blog/2014/06/28/flatiron-school-week-four</id>
-    <content type="html"><![CDATA[<p>Week four was a notable turning point. I&rsquo;ve definitely grown comfortable with having all kinds of new topics and tools hurled at me, and rather than frantically trying to cram every bit of information into my head at once, I&rsquo;ve somehow become better at parsing the infodumps for smaller bites of ideas to play with and process.</p>
-
-<p>We started off the week with an introduction to Rake tasks, a helpful way to automate common tasks you might perform in a given Ruby development environment. We plowed forward with ActiveRecord&rsquo;s associations, which are essentially macros for generating methods that describe relationships between related columns in database tables.</p>
-
-<p>All of that was well and good, but it was the introduction of ERB that changed everything. ERB, or embedded Ruby, is a templating system that embeds Ruby into HTML pages as they&rsquo;re generated. It&rsquo;s complex to get right &ndash; since you&rsquo;re passing information from the database to the ERB page, it&rsquo;s easy to screw up the data hand-off &ndash; but our first project using it was a real, honest-to-god website in HTML.</p>
-
-<p>It may have been an ultra-barebones site, but seeing something you&rsquo;ve coded pop up in the browser after three weeks of command line applications was a welcome change.</p>
-
-<p>Once we hit ERB, the material took a sharp turn toward the internet. We went through the overall structure of the internet and how communication works, the different types of http requests, Ruby&rsquo;s Rack webserver interface, and finally Sinatra, a domain-specific language (DSL) designed for easily creating web applications (with a minimal interface that makes Rack look crotchety as hell by comparison).</p>
-
-<p>Until we get to Rails, it looks like we&rsquo;ll be fine-tuning everything we&rsquo;ve learned up to now in Sinatra. It&rsquo;s definitely tricky, but I&rsquo;m really liking playing around with Sinatra &ndash; and seeing the results pop up in an actual browser only hints at all the awesomeness still to come.</p>
 ]]></content>
   </entry>
   
