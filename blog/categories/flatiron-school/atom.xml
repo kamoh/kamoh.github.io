@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Flatiron School | lolgramming]]></title>
   <link href="http://kamoh.github.io/blog/categories/flatiron-school/atom.xml" rel="self"/>
   <link href="http://kamoh.github.io/"/>
-  <updated>2014-08-06T00:24:21-04:00</updated>
+  <updated>2014-08-08T11:33:05-04:00</updated>
   <id>http://kamoh.github.io/</id>
   <author>
     <name><![CDATA[Ben Serviss]]></name>
@@ -12,88 +12,6 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Flatiron School Week Nine: Project Mode!]]></title>
-    <link href="http://kamoh.github.io/blog/2014/08/02/flatiron-school-week-nine/"/>
-    <updated>2014-08-02T22:12:45-04:00</updated>
-    <id>http://kamoh.github.io/blog/2014/08/02/flatiron-school-week-nine</id>
-    <content type="html"><![CDATA[<p>Things are starting to come to a head. We started off the week with our last crop of lectures on AJAX and using JSON in Rails, then began project mode!</p>
-
-<p>From here on out until the end of the course, we&rsquo;ll be working in groups to make real web applications in lieu of lectures. The first week was a success &ndash; working on our own projects is immediately much more rewarding than completing assignments, and everyone managed to put together some really impressive sites by the end of the week.</p>
-
-<p style="text-align:center;"><img class="left" src="/images/8514/when_to_wear_it_main.png" width="550" title="WhenToWearIt" ></p>
-
-<p>I&rsquo;m particularly proud of how my group&rsquo;s project turned out. It&rsquo;s called WhenToWearIt, and it&rsquo;s an outfit organizer that not only lets you organize your favorite outfit and clothing combinations, but it&rsquo;ll help you keep track of who you saw when you wore them to avoid seeming like you only own one outfit. Plus it also makes recommendations based on your wardrobe and preferences!</p>
-
-<p style="text-align:center;"><img class="right" src="/images/8514/when_to_wear_it_dash.png" width="450" title="WhenToWearIt" ></p>
-
-<p>While I&rsquo;m not exactly the target audience, I really liked the idea of producing something that women would find useful. I personally think they&rsquo;re an under-served audience in many ways, and more than a few female classmates said that they&rsquo;d use it when we release the finished version!</p>
-
-<p>It&rsquo;s almost complete, but there&rsquo;s still some work to do to finish up the login system and some final polishing. I can&rsquo;t wait to finally launch something that will <em>actually</em> be useful to people!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Flatiron School: Week Eight]]></title>
-    <link href="http://kamoh.github.io/blog/2014/07/28/flatiron-school-week-eight/"/>
-    <updated>2014-07-28T00:27:10-04:00</updated>
-    <id>http://kamoh.github.io/blog/2014/07/28/flatiron-school-week-eight</id>
-    <content type="html"><![CDATA[<p>Week eight marked our second (and last) week of JavaScript. We worked with some of JS&rsquo;s unique peculiarities, specifically dealing with closures, immediately-invoked functional expressions (or IIFEs), and how hoisting affects variable scope.</p>
-
-<p>We also spent more time on the details involved in the relationship between prototypes, constructors and instances; the call and apply methods (and how they&rsquo;re similar to Ruby&rsquo;s send method); and how JavaScript handles classes.</p>
-
-<p>We finished up the week working with JSON and AJAX. While I find JSON-formatted data to be really interesting, especially in how it enables data transmissions between different kinds of programs (written in different languages, even!), the subtleties involved in using AJAX correctly are a little overwhelming.</p>
-
-<p>It&rsquo;s obviously a very powerful tool for creating a seamless online experience, but like most things in programming, there&rsquo;s much more to it than you think.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Flatiron School: Week Seven]]></title>
-    <link href="http://kamoh.github.io/blog/2014/07/19/flatiron-school-week-seven/"/>
-    <updated>2014-07-19T18:57:47-04:00</updated>
-    <id>http://kamoh.github.io/blog/2014/07/19/flatiron-school-week-seven</id>
-    <content type="html"><![CDATA[<p>Something clicked this week. Between starting JavaScript on Wednesday, a great morning project using Spotify&rsquo;s API, and becoming even more comfortable withstanding torrents of new information, I&rsquo;m starting to feel like a programmer. It&rsquo;s not only that &ndash; when I look around at the other students, I no longer see people who came here because they wanted to learn how to program. I just see more programmers.</p>
-
-<p>It&rsquo;s an exhilarating, confounding, amazing feeling.</p>
-
-<p>On Monday and Tuesday we barreled through most of the remaining Rails topics &ndash; some more details on using sessions to track user logins, Rails' asset pipeline, and AREL for handling complex database queries. AREL in particular was difficult to get through, since you are drilling down through AREL&rsquo;s syntax to the base SQL below, but it&rsquo;s easy to see how powerful it can be once you learn how to properly use it.</p>
-
-<p>We also covered self-referential associations, in cases where you want to refer to a join table&rsquo;s column by a different name, and spent a little time looking at JSON&rsquo;s parsing with Spotify&rsquo;s web API (which was a lot of fun!).</p>
-
-<p>On Wednesday, we dove into JavaScript. Most of us were excited to learn about it since we&rsquo;ve all been dying to start playing around with more user-facing elements of web development, and despite its cranky syntax, the consensus among most of the students is that JS and jQuery are great tools.</p>
-
-<p style="text-align:center;"> <div style="float:right"><script type="text/javascript" src="http://video.foxbusiness.com/v/embed.js?id=3670694770001&w=466&h=263">texty</script><p text-align="right"><i>Fox Business came to the campus a few weeks ago to do a segment.<br>I&rsquo;m literally coding with my back against the wall at 1:02 &amp; 3:40.</i></p></div></p>
-
-<p>The most satisfying part of working with JavaScript has been how relatively easy it&rsquo;s been to pick up. Before Flatiron, when I&rsquo;d try to learn programming every other year or so, I would spend a week trying online courses and exercises before giving up in frustration.</p>
-
-<p>Now, not only has it been weirdly smooth picking up an entirely new language, but I keep seeing so many similarities between JS and Ruby that make learning it even easier. Aside from components present in every programming language like strings and arrays, seeing similarities like how JavaScript&rsquo;s &lsquo;this&rsquo; mirror&rsquo;s Ruby&rsquo;s &lsquo;self&rsquo; makes it so much easier to get a grasp on a new language.</p>
-
-<p>I&rsquo;ve also been going to the school on Saturday and Sunday for at least two weeks now, and plan on doing so until the end of the course. My group has started working on our group project, and we still have a lot of work to do before we present on August 5th. But even though I&rsquo;m literally there every day, I can&rsquo;t wait to finish this blog post and get back to work.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Flatiron School: Week Six]]></title>
-    <link href="http://kamoh.github.io/blog/2014/07/12/flatiron-school-week-six/"/>
-    <updated>2014-07-12T22:22:03-04:00</updated>
-    <id>http://kamoh.github.io/blog/2014/07/12/flatiron-school-week-six</id>
-    <content type="html"><![CDATA[<p>This was a big one. On Monday, we finally started working with Rails. Especially coming from Sinatra, the size and heft of Rails was immediately apparent. Rails is a powerful framework to be sure, but since there&rsquo;s so much going on, it can feel confusing when trying to figure out exactly how some of its abstracted methods operate.</p>
-
-<p>For example, Rails' form builder is a helpful way to build out both simple and complex forms using a more minimalist approach &ndash; yet its heavy reliance on internal methods abstracted several layers below the surface lends it a steep learning curve for most of the students. This dynamic seems to be par for the course for Rails in general.</p>
-
-<p>While there is definitely a ton of utility to be gained from having such tools available, there is a danger of treating these features like a black box. Fortunately, nearly all of us have enough innate curiosity and dogged determination to find out just what is exactly going on under the hood.</p>
-
-<p style="text-align:center;"> <div style="float:right"><iframe class="vine-embed" src="https://vine.co/v/MxvTl3mtaE1/embed/postcard" width="480" height="480" frameborder="2" text-align="right"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script><p style="text-align:center"><em>It&rsquo;s hard work, but code monkeys gotta unwind too.</em></p></div></p>
-
-<p>We were also introduced to Rails' router, which acts as an intermediary for page requests between the user&rsquo;s view and the controllers; both form builder and form tags for creating intelligent forms; partials (to help break out commong header and navigation elements away from the main page templates); validation and other callbacks; and authentication through creating and maintaining sessions.</p>
-
-<p>Outside of class, on fellow student <a href="http://callahanchris.github.io/">Chris Callhan</a>&rsquo;s suggestion I started reading <a href="http://www.amazon.com/Practical-Object-Oriented-Design-Ruby-Addison-Wesley/dp/0321721330">Practical Object-Oriented Programming in Ruby</a> by Sandi Metz, aka POODR. Hilarious acronym aside, Metz&rsquo;s book breaks down the rationale behind object-oriented programming, and shows just why it&rsquo;s so important. Gaining an new perspective outside of class materials and projects is defintely helpful in maintaining a cohesive point of view on what we&rsquo;re learning and how it all fits together.</p>
-
-<p>It&rsquo;s inspiring and humbling to know that, even once I figure out the fundamentals of programming, there&rsquo;s still a lifetime of techniques and best practices to learn.</p>
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[The Curious Chairs of the Flatiron School]]></title>
@@ -129,6 +47,127 @@
 <p>A major part of becoming a programmer is mental. The mental shift from &ldquo;I need a programmer to help me&rdquo; when faced with a technical problem to &ldquo;I can figure this out&rdquo; is an important one; the transition from being frustrated with code defects to being driven by curiosity to find the problem is critical in staying motivated to improve.</p>
 
 <p>As much as I may be reading into this, and as off-the-wall a metaphor it may seem, having these odd chairs around as I&rsquo;m trying to mold myself into a programmer is a constant reminder that what may seem unfamiliar and alien one day may become familiar, welcome and fun the next.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Named Parameters: What's A Nice Keyword Argument Like You Doing in a Place Like This?]]></title>
+    <link href="http://kamoh.github.io/blog/2014/06/20/named-parameters-whats-a-nice-keyword-argument-like-you-doing-in-a-place-like-this/"/>
+    <updated>2014-06-20T00:29:30-04:00</updated>
+    <id>http://kamoh.github.io/blog/2014/06/20/named-parameters-whats-a-nice-keyword-argument-like-you-doing-in-a-place-like-this</id>
+    <content type="html"><![CDATA[<p>In one of the labs from a few weeks ago, my Ruby class was introduced to named parameters, also known as keyword arguments. These parameters are defined in the method signature with a default value in the format (named_parameter: default_value).</p>
+
+<p>Because their behavior appears similar to standard arguments with default values, most of us were mystified about their purpose. In Ruby, standard arguments with default values appear in the format (standard_argument=default_value). Take a look at the similarities:</p>
+
+<p>```ruby
+  def drink(spirit: &ldquo;whiskey&rdquo;) # spirit = named parameter</p>
+
+<pre><code>"Another #{spirit} for my friend here, barkeep."
+</code></pre>
+
+<p>  end</p>
+
+<p>  drink
+  #=> &ldquo;Another #{spirit} for my friend here, barkeep.&rdquo;</p>
+
+<p>  def eat(snacks=&ldquo;pretzels&rdquo;) # snacks = standard argument with default value</p>
+
+<pre><code>"And some #{snacks} - I'm famished!"
+</code></pre>
+
+<p>  end</p>
+
+<p>  eat
+  #=> &ldquo;And some pretzels &ndash; I&rsquo;m famished!&rdquo;
+```
+As beginners, was there some use for them we just weren&rsquo;t grasping? Or were these named parameters just another option bestowed by the Ruby gods in order afford us more options when coding?</p>
+
+<p>Looking at this in another perspective, if you try to call a standard method with arguments without using any, you get an error:</p>
+
+<p>```ruby
+  def drink(container)</p>
+
+<pre><code>"Pour me a #{container}, willya?"
+</code></pre>
+
+<p>  end</p>
+
+<p>  drink(&ldquo;glass&rdquo;)
+  #=> &ldquo;Pour me a glass, willya?&rdquo;</p>
+
+<p>  drink
+  #=> ArgumentError: wrong number of arguments (0 for 1)
+```
+It&rsquo;s logical to assume that named parameters would work the same way. Yet if you try this with a method with named parameters, it still runs &ndash; just like how standard parameters use default values for missing arguments!</p>
+
+<p>While this is helpful to have, it&rsquo;s nothing that we can&rsquo;t do through default parameters.</p>
+
+<p>Then we learned that named parameters don&rsquo;t care about the order in which you call them.</p>
+
+<p>On one hand, neat trick!</p>
+
+<p>```ruby
+  def bootlegger(distillery: location, source: location)</p>
+
+<pre><code>"We smuggled the bourbon from #{source}, but we brewed this moonshine in #{distillery}. Dee-licious!"
+</code></pre>
+
+<p>  end</p>
+
+<p>  bootlegger(source: &ldquo;Canada&rdquo;, distillery: &ldquo;Grandma&rsquo;s old bathtub&rdquo;)
+  #=> &ldquo;We smuggled the bourbon from Canada, but we brewed this moonshine in Grandma&rsquo;s old bathtub. Dee-licious!&rdquo;
+```
+On the other hand, who cares? This feature is a nice wrinkle, but it doesn&rsquo;t really seem like it warrants the existence of the function.</p>
+
+<p>After a little digging and experimentation, I finally found a reason why named parameters are worth the trouble: They allow methods to require specifically-named parameters when being invoked, for an added measure of security!</p>
+
+<p style="text-align:center;"><img src="/images/keep_out.jpeg" title="Oh, you forgot to close your parentheses? Scram!" ></p>
+
+<p style="text-align:center;"> <em>Source: <a href="https://www.flickr.com/photos/double_seven/4407285444/?rb=1">Flickr</a></em></p>
+
+<p>```ruby
+  def speakeasy_knock(password: )</p>
+
+<pre><code>"'#{password}'? Good enough for me, come on in!"
+</code></pre>
+
+<p>  end</p>
+
+<p>  speakeasy_knock
+  #=> ArgumentError: missing keyword: password</p>
+
+<p>  speakeasy_knock(password: &ldquo;Open up, chump!&rdquo;)
+  #=> &ldquo;&lsquo;Open up, chump&rsquo;? Good enough for me, come on in!&rdquo;
+```
+Of course, you&rsquo;ll need added security measures beyond just requiring the named parameter. But suddenly, having named parameters available as a tool starts to make sense.</p>
+
+<p>Because standard arguments take input regardless of typing or designation, and because default arguments are fine not taking any input from the method call at all, requiring a named parameter for a method to function gives it a measure of protection against reckless usage.</p>
+
+<p>To strain an already-exhausted metaphor, in certain use cases, named parameters can act exactly like locked doors that require code words in order to grant entry.</p>
+
+<p style="text-align:center;"><img src="/images/62014/speakeasy.jpg" title="Hooray for named parameters and bootlegging, in no particular order!" ></p>
+
+<p style="text-align:center;"> <em>Source: <a href="http://speakeasy216.com/">Speakeasy216</a></em></p>
+
+<p>For more gory details about this and other functions introduced in Ruby 2.0.0, check out this substantial post by Marc-Andre Lafortune:
+<a href="http://blog.marc-andre.ca/2013/02/23/ruby-2-by-example/">http://blog.marc-andre.ca/2013/02/23/ruby-2-by-example/</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Why Learn to Program?]]></title>
+    <link href="http://kamoh.github.io/blog/2014/05/27/why-learn-to-program/"/>
+    <updated>2014-05-27T10:10:07-04:00</updated>
+    <id>http://kamoh.github.io/blog/2014/05/27/why-learn-to-program</id>
+    <content type="html"><![CDATA[<p>Starting on the first week of June, I&rsquo;ll be starting as a web development student at the <a href="http://www.flatironschool.com">Flatiron School</a>. The course is full-time intensive, meeting every day from 9-6 for twelve weeks. Students enter as programming newbies and leave as employed, full-stack web developers.</p>
+
+<p>Since graduating from college, I&rsquo;d been working in the video game industry as a designer and producer. So why the switch to programming?</p>
+
+<p>I&rsquo;ve always been interested in how computers work. Though I&rsquo;ve long messed around with light coding, websites and scripting here and there over the past ten years, I&rsquo;ve never sat down to formally learn it (aside from two poorly-taught classes in high school and college). After a <a href="http://weatherlightus.tumblr.com/">friend of mine</a> went through Flatiron&rsquo;s program, his constant praise for the experience piqued my interest, and after getting accepted, I decided to go.</p>
+
+<p>However, curiosity in programming is more than just a long-time interest. The world today runs on software, especially over the web. If you&rsquo;re able to not only understand how the web works, but capable of creating your own tools that leverage it, you wield immense power. I&rsquo;ve always valued being a creator over just being a consumer, and the knowledge I hope to gain from this class will push me even further to the former.</p>
+
+<p>Over the course of the class, I&rsquo;ll be posting updates and thoughts in this blog. It&rsquo;s going to be an interesting summer.</p>
 ]]></content>
   </entry>
   

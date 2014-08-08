@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | lolgramming]]></title>
   <link href="http://kamoh.github.io/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://kamoh.github.io/"/>
-  <updated>2014-08-06T00:24:21-04:00</updated>
+  <updated>2014-08-08T11:33:05-04:00</updated>
   <id>http://kamoh.github.io/</id>
   <author>
     <name><![CDATA[Ben Serviss]]></name>
@@ -114,23 +114,6 @@ Of course, you&rsquo;ll need added security measures beyond just requiring the n
 
 <p>For more gory details about this and other functions introduced in Ruby 2.0.0, check out this substantial post by Marc-Andre Lafortune:
 <a href="http://blog.marc-andre.ca/2013/02/23/ruby-2-by-example/">http://blog.marc-andre.ca/2013/02/23/ruby-2-by-example/</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Flatiron School: Two Week Recap]]></title>
-    <link href="http://kamoh.github.io/blog/2014/06/13/flatiron-two-week-recap/"/>
-    <updated>2014-06-13T23:25:05-04:00</updated>
-    <id>http://kamoh.github.io/blog/2014/06/13/flatiron-two-week-recap</id>
-    <content type="html"><![CDATA[<p>Today marks two weeks at Flatiron. Just like we&rsquo;ve been prepared for, it&rsquo;s been an emotional and intellectual rollercoaster. The first week was mainly about getting acquainted with git, command line navigation, setting up our environment &ndash; and then we dove right into Ruby.</p>
-
-<p>We closed out the week with a ton of labs designed to test our burgeoning programming skills, and by Saturday my head was crammed so full of new knowledge I had no idea what to make of it.</p>
-
-<p>Week two picked up right where we left off, pushing further into Ruby methods, data structure manipulation, object oriented practices and web scraping.</p>
-
-<p>By the end of the week, I was filled with a totally bizarre combination of emotions &ndash; exhilaration from learning so much, bafflement at still not being able to implement the solutions that I could visualize, disappointment at not understanding at a faster pace, and a surreal sense of accomplishment of how far I&rsquo;ve come in understanding programming logic since the class had begun.</p>
-
-<p>Overall, these first weeks have impressed upon me the supreme importance of working with others to overcome problems, and of shifting your mindset to make room for better solutions to present themselves. One of my main goals for the summer is to develop a better programming mindset when approaching problems, and though there&rsquo;s a long way to go, after these first weeks I can slowly feeling it start to take shape.</p>
 ]]></content>
   </entry>
   
