@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Search Algorithm | lolgramming]]></title>
+  <link href="http://kamoh.github.io/blog/categories/search-algorithm/atom.xml" rel="self"/>
+  <link href="http://kamoh.github.io/"/>
+  <updated>2014-08-23T17:27:14-04:00</updated>
+  <id>http://kamoh.github.io/</id>
+  <author>
+    <name><![CDATA[Ben Serviss]]></name>
+    <email><![CDATA[ben.serviss@flatironschool.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Binary Search Trees in Ruby]]></title>
+    <link href="http://kamoh.github.io/blog/2014/08/23/binary-search-trees-in-ruby/"/>
+    <updated>2014-08-23T13:58:05-04:00</updated>
+    <id>http://kamoh.github.io/blog/2014/08/23/binary-search-trees-in-ruby</id>
+    <content type="html"><![CDATA[<p>There&rsquo;s never a lack of options for ways to store data. Depending on the type of data you&rsquo;re dealing with, you could do much worse than a binary search tree.</p>
+
+<p>The concept behind binary search trees is simple.</p>
+
+<ol>
+<li><p>The tree is node based, and a new tree is initialized with a root node. This node has a value, a left space, and a right space. Both left and right spaces are empty to begin with.</p></li>
+<li><p>When you want to add a new node, the tree compares the value of the new node to the value of the root node.</p></li>
+<li><p>If the new node&rsquo;s value is less than the root&rsquo;s value, it&rsquo;s stored in the root node&rsquo;s left space. If there&rsquo;s already a node there, then compare against that node and repeat.</p></li>
+<li><p>If the new node&rsquo;s value is greater than the root&rsquo;s value, it&rsquo;s stored in the root node&rsquo;s right space. If there&rsquo;s already a node there, then compare against that node and repeat.</p></li>
+</ol>
+
+
+<p style="text-align:center;"><img class="right" src="../images/82314/binary_search_tree.png" title="&lsquo;Binary search tree" ></p>
+
+<p>That&rsquo;s it!</p>
+
+<p>Things get a little more complex once the tree starts to fill out, and the algorithm has to continue traversing down each branch of the tree to find the perfect spot for your new node.</p>
+
+<p>There&rsquo;s also the question of inserting nodes with duplicate values. While it&rsquo;s strongly recommended to exclude duplicate values from a binary search tree, you can elect to store them to the left (by allowing less than or equal to nodes) or right (by allowing greater than or equal to nodes). If you do allow this, you run the risk of creating an unbalanced tree with different numbers of branches on either side.</p>
+
+<p>One way of implementing binary search trees in Ruby is with two separate classes: one for the tree itself and one for the node objects that populate it.</p>
+
+<p>```ruby
+class BST</p>
+
+<p>  attr_accessor :data</p>
+
+<p>  def initialize(data)</p>
+
+<pre><code>@root = Node.new(data)
+@sorted_data = []
+</code></pre>
+
+<p>  end</p>
+
+<p>  def insert(val)</p>
+
+<pre><code>@root.insert(val) 
+</code></pre>
+
+<p>  end</p>
+
+<p>  def traverse(node=@root)</p>
+
+<pre><code>traverse(node.left) if node.left 
+@sorted_data &lt;&lt; node.data 
+traverse(node.right) if node.right 
+@sorted_data
+</code></pre>
+
+<p>  end</p>
+
+<p>end</p>
+
+<p>class Node</p>
+
+<p>  attr_accessor :data, :left, :right</p>
+
+<p>  def initialize(data)</p>
+
+<pre><code>@data = data
+@left = nil
+@right = nil
+</code></pre>
+
+<p>  end</p>
+
+<p>  def insert(val)</p>
+
+<pre><code>new_node = Node.new(val) 
+if new_node.data &lt; data &amp;&amp; left.nil?
+  self.left = new_node 
+elsif new_node.data &lt; data 
+  left.insert(val) 
+elsif right.nil?
+  self.right = new_node 
+else 
+  right.insert(val)
+end
+</code></pre>
+
+<p>  end</p>
+
+<p>end
+```
+As you use the insert method on the tree to add new nodes, it filters down to the insert instance method on the root node, then recursively calls itself on each child node as it searches for an empty place to attach the new node to the tree.</p>
+
+<p>The traverse method also uses recursion to visit each node and add their values to an array, starting down the left-most node at the bottom of the tree and working its way over to the right-most node.</p>
+
+<p>Binary search trees perform relatively well, with average time complexity of O(log(n)) for all operations and O(n) at their worst.</p>
+
+<p>However, since the shape of the tree is wholly dependent on the order that new nodes are added, the overall structure of the tree may degrade over time after numerous deletions. Also, since tree traversal requires comparisons against each node, very large trees may rack up longer search times.</p>
+]]></content>
+  </entry>
+  
+</feed>

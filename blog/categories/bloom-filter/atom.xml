@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Bloom Filter | lolgramming]]></title>
+  <link href="http://kamoh.github.io/blog/categories/bloom-filter/atom.xml" rel="self"/>
+  <link href="http://kamoh.github.io/"/>
+  <updated>2014-08-23T17:27:14-04:00</updated>
+  <id>http://kamoh.github.io/</id>
+  <author>
+    <name><![CDATA[Ben Serviss]]></name>
+    <email><![CDATA[ben.serviss@flatironschool.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Utterly Insane Data Structures]]></title>
+    <link href="http://kamoh.github.io/blog/2014/07/20/utterly-insane-data-structures/"/>
+    <updated>2014-07-20T21:41:07-04:00</updated>
+    <id>http://kamoh.github.io/blog/2014/07/20/utterly-insane-data-structures</id>
+    <content type="html"><![CDATA[<p>The process of learning something completely new is a strangely tiered experience. More than anything else, the past seven weeks have felt like falling down a very deep pit, and gradually climbing out. The tricky part is, since you&rsquo;re so focused on climbing up, you can&rsquo;t actually tell when you&rsquo;ve climbed past where you fell in &ndash; all you know is to keep going.</p>
+
+<p>Once you get into this groove, it can start to feel comfortable. On the other hand, staying humble and keeping a beginner&rsquo;s mind is paramount to staying receptive and curious.</p>
+
+<p>Which brings us to data structures!</p>
+
+<p>At this point, I&rsquo;ve grown comfortable using the common data structures used in software. Arrays, hashes (objects in JS), stacks and queues seem like reasonable enough entities. Even binary search trees make sense, despite being more complicated to wrangle.</p>
+
+<p>Which led me to thinking &ndash; are there any stranger data structures out there? Could there be odd classifications of information out there in the wild, their mysteries coiled tight inside dense documentation, waiting to be stuffed with bits?</p>
+
+<p>Of course there are &ndash; this would be a pretty short blog post if there weren&rsquo;t!</p>
+
+<h1>Bloom Filters</h1>
+
+<p>The bloom filter is almost exactly what I was looking for &ndash; a bizarre, ungainly data structure with plenty of good points, and a few dashes of tragic weirdness.</p>
+
+<p>Bloom filters bring a heaping helping of optimization to the table. Instead of storing long chunks of data verbatim into a hash table or some other literal configuration, they hold values in multiple places in memory in order to check for &lsquo;set membership,&rsquo; or whether your queried item belongs in the particular set being searched. This cuts down significantly on the memory required to store the structure, as well as the number of queries needed to find the result.</p>
+
+<p>When you want to access a value, the bloom filter will check all of the memory locations associated with that search term, and if the return values are positive, it&rsquo;s a good indication that it exists.</p>
+
+<p><a href="http://en.wikipedia.org/wiki/Bloom_filter#mediaviewer/File:Bloom_filter.svg"><img class="right" src="/images/72114/bloom_filter.png" title="Bloom filter by David Eppstein" ></a></p>
+
+<p>Unfortunately, because memory locations are reused by multiple entries in the filter, it&rsquo;s possible to generate false positives depending on how many values are being stored.</p>
+
+<p>Oh, and you can never delete anything ever, because the memory locations corresponding to the term may be in use by other values. So weird!</p>
+
+<p>So what the heck do you use this for? Until about two years ago, the Chrome browser used a <a href="https://chromiumcodereview.appspot.com/10896048/">bloom filter to detect malicious URLs</a>. On the other hand, as of February 2014 Google appears to still use bloom filters to <a href="http://www.chromium.org/developers/design-documents/rappor">collect metrics stored from users</a>.</p>
+
+<p>For more clarification, Cube Drone has a pretty good three.5 minute summary of how these things work:</p>
+
+<p style="text-align:center;"><iframe width="560" height="315" src="//www.youtube.com/embed/-SuTGoFYjZs" frameborder="0" allowfullscreen></iframe></p>
+
+<h1>Tries</h1>
+
+<p>Pronounced &ldquo;tree&rdquo; (see? weird right off the bat), tries appear to ape the structure of binary search trees, but they&rsquo;re unique animals. While binary search trees reshuffle themselves to accommodate new values with respect to the current makeup of the tree, tries traverse an existing selection of data to return a specific value &ndash; which is where they get their name, from reTRIEval. Tries also specialize in text queries, which comes into play regarding their real-world use cases.</p>
+
+<p style="text-align:center;"><img class="right" src="/images/72114/trie_actors.png" title="A trie, taken from rabblerabbleRubble&rsquo;s video (link below)" ></p>
+
+<p>And because they are used to retrieve values instead of generating an updated order, they offer a space-saving alternative to hash tables and other basic data indexing structures.</p>
+
+<p>So how do they work? Given a list of words that all start with the same few letters &ndash; like ace, actor and aces &ndash; the trie would list utilize a separate node for every letter, following all the way down until each traversal terminates in a final word.</p>
+
+<p>If you&rsquo;re thinking that something like this would be good for spell-checking or autocomplete, you&rsquo;re right! Tries are generally used for such text-intensive scenarios.</p>
+
+<p>rabblerabbleRubble on YouTube breaks down the concept in under two minutes:</p>
+
+<p style="text-align:center;"><iframe width="420" height="315" src="//www.youtube.com/embed/Up7yEHUqN30" frameborder="0" allowfullscreen></iframe></p>
+
+<h1>Skip Lists</h1>
+
+<p>Skip lists are the coolest things in the world. Skip lists provide fast searching capabilities within an ordered series of elements, commonly numbers. In essence, skip lists compare a current element with other elements you&rsquo;ve previously inserted into your collection &ndash; including not only INFINITY on the right, but NEGATIVE FREAKING INFINITY on the left!</p>
+
+<p><img class="right" src="/images/72114/skip_list_animated.gif" width="650" title="SO COOL" ></p>
+
+<p>Once you&rsquo;ve slotted where an element is supposed to go, the element may or may not be &lsquo;promoted&rsquo; up to the next level of comparison based on a random decision by the search algorithm. Since some numbers don&rsquo;t get promoted, future selections can skip entire swaths of set data, speeding up the entire query time &ndash; thanks to the flip of a coin!</p>
+
+<p>In other words: Skip lists don&rsquo;t care about what you just did. Skip lists don&rsquo;t care about your plans for the future of your little algorithm. Skip lists are gonna do skip lists just how skip lists likes it.</p>
+
+<p style="text-align:center;"><img src="/images/72114/monster-truck-done.jpg" title="Skip lists will crush everything!" ></p>
+
+<p>Skip lists are so cool that this video showing them in action, even though the narrator&rsquo;s voice is literally skipping because he set the speed too fast and the visual quality is near-abysmal, is by far a better explanation than any words I could provide.</p>
+
+<p>Watch, enjoy &ndash; and learn.</p>
+
+<p style="text-align:center;"><iframe width="420" height="315" src="//www.youtube.com/embed/y_xnC4B2wNQ" frameborder="0" allowfullscreen></iframe></p>
+]]></content>
+  </entry>
+  
+</feed>
