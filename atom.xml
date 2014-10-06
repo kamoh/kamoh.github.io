@@ -4,7 +4,7 @@
   <title><![CDATA[lolgramming]]></title>
   <link href="http://kamoh.github.io/atom.xml" rel="self"/>
   <link href="http://kamoh.github.io/"/>
-  <updated>2014-10-06T17:09:08-04:00</updated>
+  <updated>2014-10-06T17:17:05-04:00</updated>
   <id>http://kamoh.github.io/</id>
   <author>
     <name><![CDATA[Ben Serviss]]></name>
@@ -22,7 +22,7 @@
 
 <p><a href="http://www.world-view.today"></p>
 
-<p style="text-align:center;"><img class="right" src="../images/10614/worldview-main-sm2.png" title="worldview" ></p>
+<p style="text-align:center;"><img class="right" src="http://kamoh.github.io/images/10614/worldview-main-sm2.png" title="worldview" ></p>
 
 <p></a></p>
 
@@ -193,7 +193,7 @@
 <p>Otherwise, we return the city object back to JavaScript, call the <code>makeClock</code> function to create the city&rsquo;s clock, and we&rsquo;re done!
 <a href="https://twitter.com/queens_js/status/517469989369311232"></p>
 
-<p style="text-align:center;"><img src="../images/10614/queens_js_sm.png" title="worldview" ></p>
+<p style="text-align:center;"><img src="http://kamoh.github.io/images/10614/queens_js_sm.png" title="worldview" ></p>
 
 <p></a></p>
 
@@ -221,7 +221,7 @@
 </ol>
 
 
-<p style="text-align:center;"><img class="right" src="../images/82314/binary_search_tree.png" title="'Binary search tree" ></p>
+<p style="text-align:center;"><img class="right" src="http://kamoh.github.io/images/82314/binary_search_tree.png" title="'Binary search tree" ></p>
 
 <p>That&rsquo;s it!</p>
 
