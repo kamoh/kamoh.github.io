@@ -4,7 +4,7 @@
   <title><![CDATA[Category: cryptography | lolgramming]]></title>
   <link href="http://kamoh.github.io/blog/categories/cryptography/atom.xml" rel="self"/>
   <link href="http://kamoh.github.io/"/>
-  <updated>2014-10-23T00:36:52-04:00</updated>
+  <updated>2014-10-23T00:39:12-04:00</updated>
   <id>http://kamoh.github.io/</id>
   <author>
     <name><![CDATA[Ben Serviss]]></name>
@@ -78,7 +78,7 @@ message.gsub!("nigeria ","f")
 
 <p>  <strong>3. Preserving carriage returns in the original message.</strong></p>
 
-<p>Handling lowercase and uppercase letters was easy &ndash; I just added different phrase substitutions for all 52 case variations of the English alphabet, plus a few of the more common special characters.</p>
+<p>Handling lowercase and uppercase letters was easy &ndash; I just added different phrase substitutions for all 52 case variations of the English alphabet, plus a few of the more common special characters. The others, however, were much more interesting.</p>
 
 <h1>2. Polymorphic Phrase Library</h1>
 
