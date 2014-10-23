@@ -130,6 +130,262 @@
   
 
 
+<i class="icon-calendar-empty"></i> <time datetime="2014-10-21T12:05:23-04:00" pubdate data-updated="true">Oct 21<span>st</span>, 2014</time></h5>
+          <div class="row-fluid">
+          
+          <a href="http://kamoh.github.io/blog/2014/10/21/secret-codes-in-spam/#disqus_thread">Comments </a> <span class="fui-bubble-16"></span>
+          
+          </div>
+          
+          <div class="row-fluid">
+          
+          <a href="/blog/categories/cryptography/"><span class="badge">cryptography</span></a>
+          
+          <a href="/blog/categories/projects/"><span class="badge">projects</span></a>
+          
+          <a href="/blog/categories/steganography/"><span class="badge">steganography</span></a>
+          
+          </div>
+          
+    </div>
+    <div class="span10 post-container">
+      <h1 class="link"><a href="/blog/2014/10/21/secret-codes-in-spam/">Encoding Messages in Fake Spam Using Polymorphic Interfaces</a></h1>
+      <p>There&rsquo;s something interesting about spam. I&rsquo;m not talking about the barrage of poorly-disguised junk mail everbody gets &ndash; I&rsquo;m talking about the special kind of spam that combines just the right amount of unlikely phrase pairings and absurdist imagery to create a new kind of confusion unique to the modern age.</p>
+
+<p style="text-align:center;"><img class="right" src="/images/102314/great-spam.png" width="500" title="Some great spam." ></p>
+
+<p>A few weeks ago, I made a <a href="http://www.webopedia.com/TERM/S/steganography.html">steganography</a> project, <a href="http://www.spamencoder.com/">SpamEncoder</a>, using this caliber of &lsquo;spam as art&rsquo; as the medium to hide secret messages in.</p>
+
+<p>It&rsquo;s really simple to use &ndash; you just put the message you want to hide in the &lsquo;Encode&rsquo; field, then press the button to instantly produce a coded version of the message. When you want to decode it, just copy the text in the &lsquo;Decode&rsquo; field and press that button. Couldn&rsquo;t be simpler!</p>
+
+<p>However, getting this to work just how I wanted was a little trickier. Here&rsquo;s how I did it.</p>
+
+<h1>Step 1: Case Statement</h1>
+
+<p>For the very first version of the app, I wanted to get something working as quickly as possible. Once I had a prototype up, it&rsquo;d be much easier to see where the issues and unexpected problems would come from.</p>
+
+<p>The first incarnation was a straight letter substitution, using a hideous case statement to swap out each letter of the original message for a new encoded word.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="c1"># Encode method</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">encode_letter_replace</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">case</span> <span class="n">letter</span>
+</span><span class='line'>    <span class="k">when</span> <span class="s2">&quot;a&quot;</span>
+</span><span class='line'>      <span class="s2">&quot;cialis &quot;</span>
+</span><span class='line'>    <span class="k">when</span> <span class="s2">&quot;b&quot;</span>
+</span><span class='line'>      <span class="s2">&quot;loans &quot;</span>
+</span><span class='line'>    <span class="k">when</span> <span class="s2">&quot;c&quot;</span>
+</span><span class='line'>      <span class="s2">&quot;enhancement &quot;</span>
+</span><span class='line'>    <span class="k">when</span> <span class="s2">&quot;d&quot;</span>
+</span><span class='line'>      <span class="s2">&quot;pills &quot;</span>
+</span><span class='line'>    <span class="k">when</span> <span class="s2">&quot;e&quot;</span>
+</span><span class='line'>      <span class="s2">&quot;sale &quot;</span>
+</span><span class='line'>    <span class="k">when</span> <span class="s2">&quot;f&quot;</span>
+</span><span class='line'>      <span class="s2">&quot;nigeria &quot;</span>
+</span><span class='line'>    <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Decode method</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">message_reverse_engineer</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">message</span><span class="o">.</span><span class="n">gsub!</span><span class="p">(</span><span class="s2">&quot;cialis &quot;</span><span class="p">,</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">message</span><span class="o">.</span><span class="n">gsub!</span><span class="p">(</span><span class="s2">&quot;loans &quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">message</span><span class="o">.</span><span class="n">gsub!</span><span class="p">(</span><span class="s2">&quot;enhancement &quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">message</span><span class="o">.</span><span class="n">gsub!</span><span class="p">(</span><span class="s2">&quot;pills &quot;</span><span class="p">,</span><span class="s2">&quot;d&quot;</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">message</span><span class="o">.</span><span class="n">gsub!</span><span class="p">(</span><span class="s2">&quot;sale &quot;</span><span class="p">,</span><span class="s2">&quot;e&quot;</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">message</span><span class="o">.</span><span class="n">gsub!</span><span class="p">(</span><span class="s2">&quot;nigeria &quot;</span><span class="p">,</span><span class="s2">&quot;f&quot;</span><span class="p">)</span>
+</span><span class='line'>    <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Despite being as clunky as possible, it worked well enough to prove out the concept and bring a few issues to light I hadn&rsquo;t anticipated:</p>
+
+<p>  <strong>1. The algorithm would need to handle lowercase and uppercase letters, as well as some special characters;</strong></p>
+
+<p>  <strong>2. Challenges in swapping out individual characters with spam phrases instead of single spammy words; and</strong></p>
+
+<p>  <strong>3. Preserving carriage returns in the original message.</strong></p>
+
+<p>Handling lowercase and uppercase letters was easy &ndash; I just added different phrase substitutions for all 52 case variations of the English alphabet, plus a few of the more common special characters.</p>
+
+<h1>2. Polymorphic Phrase Library</h1>
+
+<p>Replacing single characters with encoded phrases took a fair chunk of time to nail down. While the first version duplicated the entire character/spam word key in both the encode and decode methods, any time I made a change to one method chain, the other would break.</p>
+
+<p>After alternating working on each chain for a bit, I realized that a &lsquo;phrase library&rsquo; store made the most sense. Using a hash for the data structure meant I could remove all duplication and condense the phrase library into just one method.</p>
+
+<p>Depending on the operation the user wanted to do, this method could return either an encoded phrase for a character to be encoded, or the original character for all occurrences of a given spam phrase. I&rsquo;ll come back to this in a bit.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">library</span><span class="p">(</span><span class="n">input</span><span class="p">)</span> <span class="c1"># takes a hash of either { letter: letter } or { message: message } key value pair</span>
+</span><span class='line'>  <span class="n">phrase_library</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>    <span class="s1">&#39;a&#39;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;hilarious spam phrase 1 &quot;</span><span class="p">,</span><span class="s2">&quot;mildly alumsing spam phrase 2 &quot;</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;b&#39;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;delightful spam phrase 3 &quot;</span><span class="p">,</span><span class="s2">&quot;hackneyed spam phrase 4&quot;</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'>    <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>3. Preserving Carriage Returns</h1>
+
+<p>The last issue was something I dealt with almost as soon as the first version started working. Because the <code>encode</code> operation strips out all spaces in the message so it can iterate over each character and make the substitutions, I was losing any carriage returns the user included in the original message. Since my goal was to preserve the original message completely, including superfluous carriage returns, this wouldn&rsquo;t do.</p>
+
+<p>To handle this, the program replaces all <code>\n</code> returns with the ♤ UTF-8 character, which is then replaced with spam phrases just like any other character. When decoding, the phrases associated with the spade character are replaced with the spade, then finally replaced with <code>\n</code> characters right before the whole message is restored to its decoded form and output back to the user.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">message</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="s2">&quot;‡&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/\n/</span><span class="p">,</span><span class="s2">&quot;♤&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">letter</span><span class="o">|</span>
+</span><span class='line'>  <span class="c1"># encode each individual character of the message</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>4. Random Phrase Selection</h1>
+
+<p>Everything was looking good, except for one final problem. If you encoded a message, then added just one more character (or even a short word), it would just append more phrases to the existing encoded message. This wasn&rsquo;t good enough! Even if you just changed one character, the decoded message should be totally different.</p>
+
+<p>Solving this last problem turned out well. I couldn&rsquo;t use a random number to select which phrase to use to replace a character, since it would introduce an element of randomness that felt out of place in a formalized cryptography system.</p>
+
+<p>Instead, I relied on an obvious constant &ndash; the length of the message.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">message_input</span><span class="p">)</span>
+</span><span class='line'>  <span class="vi">@message</span> <span class="o">=</span> <span class="n">message_input</span>
+</span><span class='line'>  <span class="vi">@message_length_key</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">length</span><span class="o">.</span><span class="n">to_s</span><span class="o">[-</span><span class="mi">1</span><span class="o">].</span><span class="n">to_i</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># in the encode method, iterate over each character in the message and replace each with a phrase</span>
+</span><span class='line'>  <span class="n">message_length_key</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1"># increment the key for selecting phrases</span>
+</span><span class='line'>  <span class="n">message_length_key</span> <span class="o">-=</span> <span class="mi">11</span> <span class="k">if</span> <span class="n">message_length_key</span> <span class="o">&gt;</span> <span class="mi">9</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># in the library method</span>
+</span><span class='line'><span class="c1"># if sending a character to the library to be encoded, we need to return a phrase</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">character</span> <span class="o">=</span> <span class="n">input</span><span class="o">[</span><span class="ss">:letter</span><span class="o">]</span> <span class="k">if</span> <span class="n">input</span><span class="o">[</span><span class="ss">:letter</span><span class="o">]</span>
+</span><span class='line'><span class="k">if</span> <span class="n">character</span>
+</span><span class='line'>  <span class="k">if</span> <span class="o">!</span><span class="n">phrase_library</span><span class="o">[</span><span class="n">character</span><span class="o">].</span><span class="n">nil?</span>
+</span><span class='line'>    <span class="k">return</span> <span class="n">phrase_library</span><span class="o">[</span><span class="n">character</span><span class="o">][</span><span class="n">message_length_key</span><span class="o">]</span>
+</span><span class='line'>  <span class="k">else</span>
+</span><span class='line'>    <span class="k">return</span> <span class="n">character</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># otherwise, we have a message to be decoded, and we need the original character in the key</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">else</span>
+</span><span class='line'>  <span class="n">phrase_library</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">k</span><span class="p">,</span><span class="n">v</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">v</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">phrase</span><span class="o">|</span>
+</span><span class='line'>      <span class="n">message</span><span class="o">.</span><span class="n">gsub!</span><span class="p">(</span><span class="n">phrase</span><span class="p">,</span><span class="n">k</span><span class="o">.</span><span class="n">to_s</span><span class="p">)</span> <span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="n">phrase</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="n">message</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>When encoding, the <code>message_length_key</code> variable is initialized with the last digit of the length of the message. Then, for every character substitution, the key increases by one. Since I only wrote/found 10 spam phrases for each character, a check runs on message_length_key for every loop and reduces the value if it every gets too high.</p>
+
+<p>And that&rsquo;s it! It was a pretty fun project, and a good excuse to see what some challenges are when developing code systems. Plus, writing lots of gibberish turns out to be pretty fun.</p>
+
+<p>The whole thing&rsquo;s open sourced and up on github here: <a href="https://github.com/kamoh/spam-encoder">https://github.com/kamoh/spam-encoder</a></p>
+
+<p>sign your pitty virtuous checkboox thousands dogs chasing squirrels in TARGET&nbsp;</p>
+
+<p>dungeons and potlucks i am real person plus homelessness accreditation pine cone living wage certainly, &ndash;</p>
+
+<p>bagels, and severe windblown acne. Chris is dead, Job for you! more and bots have been replaced with people new flavor? Pepsi Google told me in whispers the truth savings, a bust iced tea and beverage rappers opportunity of a lifetime, my bagels, and denial of sunrise attack textile gremlins eating more and&nbsp;</p>
+
+<p>classifieds? Job now on website valley of the getting rich quick was dead? explicit, yet full of romance filed in slowly, all</p>
+
+      
+      
+    </div>
+  </div>
+
+
+
+    </article>
+    
+    <hr>
+    
+  
+  
+    <article>
+      
+
+  <div class="row-fluid">
+    <div class="span2 post-meta">
+	  <h5 class="date-time">
+
+
+
+
+
+
+
+
+  
+
+
 <i class="icon-calendar-empty"></i> <time datetime="2014-10-06T13:58:11-04:00" pubdate data-updated="true">Oct 6<span>th</span>, 2014</time></h5>
           <div class="row-fluid">
           
@@ -138,6 +394,14 @@
           </div>
           
           <div class="row-fluid">
+          
+          <a href="/blog/categories/javascript/"><span class="badge">Javascript</span></a>
+          
+          <a href="/blog/categories/projects/"><span class="badge">projects</span></a>
+          
+          <a href="/blog/categories/validation/"><span class="badge">validation</span></a>
+          
+          <a href="/blog/categories/worldview/"><span class="badge">worldview</span></a>
           
           </div>
           

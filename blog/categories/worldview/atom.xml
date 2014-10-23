@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: worldview | lolgramming]]></title>
+  <link href="http://kamoh.github.io/blog/categories/worldview/atom.xml" rel="self"/>
+  <link href="http://kamoh.github.io/"/>
+  <updated>2014-10-23T00:35:52-04:00</updated>
+  <id>http://kamoh.github.io/</id>
+  <author>
+    <name><![CDATA[Ben Serviss]]></name>
+    <email><![CDATA[ben@benserviss.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Creating Cities with Worldview]]></title>
+    <link href="http://kamoh.github.io/blog/2014/10/06/making-worldview/"/>
+    <updated>2014-10-06T13:58:11-04:00</updated>
+    <id>http://kamoh.github.io/blog/2014/10/06/making-worldview</id>
+    <content type="html"><![CDATA[<p><a href="http://www.world-view.today">Worldview</a> is a project I worked on with the inimitable <a href="http://ambertunnell.github.io/">Amber Tunnell</a>, <a href="http://www.korenlc.com/">Koren Leslie Cohen</a> and <a href="http://ewarren7.github.io">Edward Warren</a>. The idea is to give you an instant snapshot of what it&rsquo;s like in nearly any city in the world, pulling major news, pictures, weather and tweets related to the location.</p>
+
+<p><a href="http://www.world-view.today"></p>
+
+<p style="text-align:center;"><img class="right" src="/images/10614/worldview-main-sm2.png" title="worldview" ></p>
+
+<p></a></p>
+
+<p>The coolest part (in my opinion) is that you can add almost any city you want! Just type it into the input field and the site generates a clock depicting the city&rsquo;s current local time. When you click the clock, the entire site updates with the city&rsquo;s info.</p>
+
+<p>The process of adding cities was one of my favorite parts of making this thing, and here&rsquo;s how we did it.</p>
+
+<h1>Frontend Validation</h1>
+
+<p>When you first type in a new city, light validation on the JavaScript end checks to make sure what you typed in meets the bare minimum criteria to initiate the API call to Weather Underground &ndash; namely that the field isn&rsquo;t empty and that it doesn&rsquo;t contain a number.</p>
+
+<p>```ruby
+function submit_new_city(passedInput) {
+  if (passedInput !== undefined) {</p>
+
+<pre><code>  var user_input = passedInput;
+</code></pre>
+
+<p>  } else if ($(&ldquo;#new-city&rdquo;).val() == &ldquo;&rdquo;) {</p>
+
+<pre><code>  $("#invalid_city").text("Input must not be blank");
+  return false;
+</code></pre>
+
+<p>  } else if (parseInt($(&ldquo;#new-city&rdquo;).val()) * 0 === 0) {</p>
+
+<pre><code>  $("#invalid_city").text("Letters only, please");
+  return false;
+</code></pre>
+
+<p>  } else {</p>
+
+<pre><code>  var user_input = $("#new-city").val();
+</code></pre>
+
+<p>  }
+```</p>
+
+<p>The optional <code>passedInput</code> argument that the <code>submit_new_city</code> function takes is used to generate the first five cities when you initially load the page, so it can bypass this validation.</p>
+
+<h1>API Results Validation</h1>
+
+<p>Once the request is accepted past the initial validation, it&rsquo;s sent via Ajax call to Weather Underground&rsquo;s awesome autocomplete API. You don&rsquo;t even have to send the complete name of the city &ndash; the API will return the best guess it comes up with! This is undoubtedly useful, but there are still a few wrinkles.</p>
+
+<p>First, we make sure that there&rsquo;s something in the results array. For example, if you search for New Cheeseburger, you&rsquo;ll get an empty results array.</p>
+
+<p>```javascript
+var i = 0;</p>
+
+<p>function findCityArray(i) {
+  if (response.RESULTS.length === 0){</p>
+
+<pre><code>$("#invalid_city").text("Please enter a valid city");
+return;
+</code></pre>
+
+<p>  }</p>
+
+<p>```</p>
+
+<p>Next, the API includes countries as well as cities, so we have to screen for that.</p>
+
+<p><code>javascript
+// continued
+else if (response.RESULTS[i].type === "country" || response.RESULTS[i].lon === "-9999.000000") {
+  $("#invalid_city").text("Please enter a city and country");
+  return;
+}
+</code></p>
+
+<p>Finally, there are a bunch of edge cases of non-city locations where weather readings are taken, like hospitals and heliports. There are also some alternate names for regions, like Hong Kong S.A.R. (Special Administrative Region), which is a different result than just Hong Kong, China.</p>
+
+<p>To handle a few of these edge cases, we use a basic regex that we update as needed:</p>
+
+<p><code>javascript
+// continued
+else if (response.RESULTS[i].name.match(/(international|hospital|helistop|S\.A\.R|de Olivenca|do Potengi)/i)) {
+  return findCityArray(i++);
+}
+</code></p>
+
+<p>If the initial result isn&rsquo;t blank, but it doesn&rsquo;t meet the criteria here, we send another recursive <code>findCityArray</code> call to return the next element in the results API.</p>
+
+<h1>Backend Validation</h1>
+
+<p>Once we have valid city information, it&rsquo;s time to hit the server. The aim here is to send the city info to the server via Ajax and create or find a city object that we&rsquo;ll use to create a new clock that the user can click on.</p>
+
+<p>To do this, we send a POST request to the corresponding controller in Rails, which does exactly this &ndash; finding the user (if logged in) and making or finding the city.</p>
+
+<p>```ruby
+@user = User.find(session[:user_id]) if session[:user_id]
+@city = City.find_or_create_by(lat: city_params[:lat], lon: city_params[:lon]) do |city|
+  city.name = city_params[:name]
+  city.bigger_thing = city_params[:bigger_thing]
+  city.country = city_params[:country]
+end</p>
+
+<p>if !@user #create a temp user tied to session ID
+  @user = User.create(name: &lsquo;Guest&rsquo;,</p>
+
+<pre><code>  provider: 'anon', 
+  uid: session[:session_id], 
+  image: 'https://origin.ih.constantcontact.com/fs197/1110193228531/img/301.jpg?a=1115291249439')
+</code></pre>
+
+<p>  @user.cities &lt;&lt; [City.find(1),</p>
+
+<pre><code>               City.find(2), 
+               City.find(3), 
+               City.find(4), 
+               City.find(5)]
+</code></pre>
+
+<p>  session[:user_id] = @user.id
+end
+```</p>
+
+<p>Another cool thing here &ndash; if the user is not logged in but adds a city, we then create a temporary user and track the different cities they&rsquo;re using the session cookie. If this anonymous user decides to log in with their Twitter account, we update this anonymous user&rsquo;s info in the database with their real Twitter info and also import his cities from the session cookie into the new user&rsquo;s account. Edward took the lead on this feature, and you can read more about it on <a href="http://ewarren7.github.io/blog/2014/09/24/allowing-temporary-anonymous-user/">his blog</a>.</p>
+
+<p>In the controller, we also return the ID of the clock to be removed (<code>del_city_id</code>) from the page to make room for the new one.</p>
+
+<p>Finally, there&rsquo;s one last bit of validation: If the clock is already being displayed on the page, we show an error message to this effect and don&rsquo;t update the page.</p>
+
+<p><code>ruby
+unless @user.cities.find_by(lat: city_params[:lat], lon: city_params[:lon])
+  @user.cities &lt;&lt; @city if @user
+  del_city_id = city_params[:lastClock].to_i
+  CityUser.find_by(user_id: @user.id, city_id: del_city_id).destroy if @user
+  render json: @city
+else
+  render json: "this city already exists".to_json
+end
+</code></p>
+
+<p>Otherwise, we return the city object back to JavaScript, call the <code>makeClock</code> function to create the city&rsquo;s clock, and we&rsquo;re done!
+<a href="https://twitter.com/queens_js/status/517469989369311232"></p>
+
+<p style="text-align:center;"><img src="/images/10614/queens_js_sm.png" title="worldview" ></p>
+
+<p></a></p>
+
+<center><i>The four of us presenting the site at <a href="http://www.meetup.com/QueensJS/">QueensJS</a>!</i></center>
+
+
+
+]]></content>
+  </entry>
+  
+</feed>

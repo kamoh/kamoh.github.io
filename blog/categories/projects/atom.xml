@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: projects | lolgramming]]></title>
+  <link href="http://kamoh.github.io/blog/categories/projects/atom.xml" rel="self"/>
+  <link href="http://kamoh.github.io/"/>
+  <updated>2014-10-23T00:35:52-04:00</updated>
+  <id>http://kamoh.github.io/</id>
+  <author>
+    <name><![CDATA[Ben Serviss]]></name>
+    <email><![CDATA[ben@benserviss.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Encoding Messages in Fake Spam Using Polymorphic Interfaces]]></title>
+    <link href="http://kamoh.github.io/blog/2014/10/21/secret-codes-in-spam/"/>
+    <updated>2014-10-21T12:05:23-04:00</updated>
+    <id>http://kamoh.github.io/blog/2014/10/21/secret-codes-in-spam</id>
+    <content type="html"><![CDATA[<p>There&rsquo;s something interesting about spam. I&rsquo;m not talking about the barrage of poorly-disguised junk mail everbody gets &ndash; I&rsquo;m talking about the special kind of spam that combines just the right amount of unlikely phrase pairings and absurdist imagery to create a new kind of confusion unique to the modern age.</p>
+
+<p style="text-align:center;"><img class="right" src="/images/102314/great-spam.png" width="500" title="Some great spam." ></p>
+
+<p>A few weeks ago, I made a <a href="http://www.webopedia.com/TERM/S/steganography.html">steganography</a> project, <a href="http://www.spamencoder.com/">SpamEncoder</a>, using this caliber of &lsquo;spam as art&rsquo; as the medium to hide secret messages in.</p>
+
+<p>It&rsquo;s really simple to use &ndash; you just put the message you want to hide in the &lsquo;Encode&rsquo; field, then press the button to instantly produce a coded version of the message. When you want to decode it, just copy the text in the &lsquo;Decode&rsquo; field and press that button. Couldn&rsquo;t be simpler!</p>
+
+<p>However, getting this to work just how I wanted was a little trickier. Here&rsquo;s how I did it.</p>
+
+<h1>Step 1: Case Statement</h1>
+
+<p>For the very first version of the app, I wanted to get something working as quickly as possible. Once I had a prototype up, it&rsquo;d be much easier to see where the issues and unexpected problems would come from.</p>
+
+<p>The first incarnation was a straight letter substitution, using a hideous case statement to swap out each letter of the original message for a new encoded word.</p>
+
+<p>```ruby
+  # Encode method</p>
+
+<p>  def encode_letter_replace(letter)</p>
+
+<pre><code>case letter
+when "a"
+  "cialis "
+when "b"
+  "loans "
+when "c"
+  "enhancement "
+when "d"
+  "pills "
+when "e"
+  "sale "
+when "f"
+  "nigeria "
+...
+</code></pre>
+
+<p>  # Decode method</p>
+
+<p>  def message_reverse_engineer(message)</p>
+
+<pre><code>message.gsub!("cialis ","a")
+message.gsub!("loans ","b")
+message.gsub!("enhancement ","c")
+message.gsub!("pills ","d")
+message.gsub!("sale ","e")
+message.gsub!("nigeria ","f")  
+...
+</code></pre>
+
+<p>```</p>
+
+<p>Despite being as clunky as possible, it worked well enough to prove out the concept and bring a few issues to light I hadn&rsquo;t anticipated:</p>
+
+<p>  <strong>1. The algorithm would need to handle lowercase and uppercase letters, as well as some special characters;</strong></p>
+
+<p>  <strong>2. Challenges in swapping out individual characters with spam phrases instead of single spammy words; and</strong></p>
+
+<p>  <strong>3. Preserving carriage returns in the original message.</strong></p>
+
+<p>Handling lowercase and uppercase letters was easy &ndash; I just added different phrase substitutions for all 52 case variations of the English alphabet, plus a few of the more common special characters.</p>
+
+<h1>2. Polymorphic Phrase Library</h1>
+
+<p>Replacing single characters with encoded phrases took a fair chunk of time to nail down. While the first version duplicated the entire character/spam word key in both the encode and decode methods, any time I made a change to one method chain, the other would break.</p>
+
+<p>After alternating working on each chain for a bit, I realized that a &lsquo;phrase library&rsquo; store made the most sense. Using a hash for the data structure meant I could remove all duplication and condense the phrase library into just one method.</p>
+
+<p>Depending on the operation the user wanted to do, this method could return either an encoded phrase for a character to be encoded, or the original character for all occurrences of a given spam phrase. I&rsquo;ll come back to this in a bit.</p>
+
+<p>```ruby
+def library(input) # takes a hash of either { letter: letter } or { message: message } key value pair
+  phrase_library = {</p>
+
+<pre><code>'a' =&gt; ["hilarious spam phrase 1 ","mildly alumsing spam phrase 2 "],
+'b' =&gt; ["delightful spam phrase 3 ","hackneyed spam phrase 4"],
+...
+</code></pre>
+
+<p>```</p>
+
+<h1>3. Preserving Carriage Returns</h1>
+
+<p>The last issue was something I dealt with almost as soon as the first version started working. Because the <code>encode</code> operation strips out all spaces in the message so it can iterate over each character and make the substitutions, I was losing any carriage returns the user included in the original message. Since my goal was to preserve the original message completely, including superfluous carriage returns, this wouldn&rsquo;t do.</p>
+
+<p>To handle this, the program replaces all <code>\n</code> returns with the ♤ UTF-8 character, which is then replaced with spam phrases just like any other character. When decoding, the phrases associated with the spade character are replaced with the spade, then finally replaced with <code>\n</code> characters right before the whole message is restored to its decoded form and output back to the user.</p>
+
+<p><code>ruby
+message.gsub(" ","‡").gsub(/\n/,"♤").split("").each do |letter|
+  # encode each individual character of the message
+end
+</code></p>
+
+<h1>4. Random Phrase Selection</h1>
+
+<p>Everything was looking good, except for one final problem. If you encoded a message, then added just one more character (or even a short word), it would just append more phrases to the existing encoded message. This wasn&rsquo;t good enough! Even if you just changed one character, the decoded message should be totally different.</p>
+
+<p>Solving this last problem turned out well. I couldn&rsquo;t use a random number to select which phrase to use to replace a character, since it would introduce an element of randomness that felt out of place in a formalized cryptography system.</p>
+
+<p>Instead, I relied on an obvious constant &ndash; the length of the message.</p>
+
+<p>```ruby
+def initialize(message_input)
+  @message = message_input
+  @message_length_key = message.length.to_s[-1].to_i
+end</p>
+
+<h1>in the encode method, iterate over each character in the message and replace each with a phrase</h1>
+
+<p>  message_length_key += 1 # increment the key for selecting phrases
+  message_length_key &ndash;= 11 if message_length_key > 9</p>
+
+<h1>in the library method</h1>
+
+<h1>if sending a character to the library to be encoded, we need to return a phrase</h1>
+
+<p>character = input[:letter] if input[:letter]
+if character
+  if !phrase_library[character].nil?</p>
+
+<pre><code>return phrase_library[character][message_length_key]
+</code></pre>
+
+<p>  else</p>
+
+<pre><code>return character
+</code></pre>
+
+<p>  end</p>
+
+<h1>otherwise, we have a message to be decoded, and we need the original character in the key</h1>
+
+<p>else
+  phrase_library.each do |k,v|</p>
+
+<pre><code>v.each do |phrase|
+  message.gsub!(phrase,k.to_s) if message.include?(phrase)
+end
+</code></pre>
+
+<p>  end
+  message
+end
+```</p>
+
+<p>When encoding, the <code>message_length_key</code> variable is initialized with the last digit of the length of the message. Then, for every character substitution, the key increases by one. Since I only wrote/found 10 spam phrases for each character, a check runs on message_length_key for every loop and reduces the value if it every gets too high.</p>
+
+<p>And that&rsquo;s it! It was a pretty fun project, and a good excuse to see what some challenges are when developing code systems. Plus, writing lots of gibberish turns out to be pretty fun.</p>
+
+<p>The whole thing&rsquo;s open sourced and up on github here: <a href="https://github.com/kamoh/spam-encoder">https://github.com/kamoh/spam-encoder</a></p>
+
+<p>sign your pitty virtuous checkboox thousands dogs chasing squirrels in TARGET&nbsp;</p>
+
+<p>dungeons and potlucks i am real person plus homelessness accreditation pine cone living wage certainly, &ndash;</p>
+
+<p>bagels, and severe windblown acne. Chris is dead, Job for you! more and bots have been replaced with people new flavor? Pepsi Google told me in whispers the truth savings, a bust iced tea and beverage rappers opportunity of a lifetime, my bagels, and denial of sunrise attack textile gremlins eating more and&nbsp;</p>
+
+<p>classifieds? Job now on website valley of the getting rich quick was dead? explicit, yet full of romance filed in slowly, all</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Creating Cities with Worldview]]></title>
+    <link href="http://kamoh.github.io/blog/2014/10/06/making-worldview/"/>
+    <updated>2014-10-06T13:58:11-04:00</updated>
+    <id>http://kamoh.github.io/blog/2014/10/06/making-worldview</id>
+    <content type="html"><![CDATA[<p><a href="http://www.world-view.today">Worldview</a> is a project I worked on with the inimitable <a href="http://ambertunnell.github.io/">Amber Tunnell</a>, <a href="http://www.korenlc.com/">Koren Leslie Cohen</a> and <a href="http://ewarren7.github.io">Edward Warren</a>. The idea is to give you an instant snapshot of what it&rsquo;s like in nearly any city in the world, pulling major news, pictures, weather and tweets related to the location.</p>
+
+<p><a href="http://www.world-view.today"></p>
+
+<p style="text-align:center;"><img class="right" src="/images/10614/worldview-main-sm2.png" title="worldview" ></p>
+
+<p></a></p>
+
+<p>The coolest part (in my opinion) is that you can add almost any city you want! Just type it into the input field and the site generates a clock depicting the city&rsquo;s current local time. When you click the clock, the entire site updates with the city&rsquo;s info.</p>
+
+<p>The process of adding cities was one of my favorite parts of making this thing, and here&rsquo;s how we did it.</p>
+
+<h1>Frontend Validation</h1>
+
+<p>When you first type in a new city, light validation on the JavaScript end checks to make sure what you typed in meets the bare minimum criteria to initiate the API call to Weather Underground &ndash; namely that the field isn&rsquo;t empty and that it doesn&rsquo;t contain a number.</p>
+
+<p>```ruby
+function submit_new_city(passedInput) {
+  if (passedInput !== undefined) {</p>
+
+<pre><code>  var user_input = passedInput;
+</code></pre>
+
+<p>  } else if ($(&ldquo;#new-city&rdquo;).val() == &ldquo;&rdquo;) {</p>
+
+<pre><code>  $("#invalid_city").text("Input must not be blank");
+  return false;
+</code></pre>
+
+<p>  } else if (parseInt($(&ldquo;#new-city&rdquo;).val()) * 0 === 0) {</p>
+
+<pre><code>  $("#invalid_city").text("Letters only, please");
+  return false;
+</code></pre>
+
+<p>  } else {</p>
+
+<pre><code>  var user_input = $("#new-city").val();
+</code></pre>
+
+<p>  }
+```</p>
+
+<p>The optional <code>passedInput</code> argument that the <code>submit_new_city</code> function takes is used to generate the first five cities when you initially load the page, so it can bypass this validation.</p>
+
+<h1>API Results Validation</h1>
+
+<p>Once the request is accepted past the initial validation, it&rsquo;s sent via Ajax call to Weather Underground&rsquo;s awesome autocomplete API. You don&rsquo;t even have to send the complete name of the city &ndash; the API will return the best guess it comes up with! This is undoubtedly useful, but there are still a few wrinkles.</p>
+
+<p>First, we make sure that there&rsquo;s something in the results array. For example, if you search for New Cheeseburger, you&rsquo;ll get an empty results array.</p>
+
+<p>```javascript
+var i = 0;</p>
+
+<p>function findCityArray(i) {
+  if (response.RESULTS.length === 0){</p>
+
+<pre><code>$("#invalid_city").text("Please enter a valid city");
+return;
+</code></pre>
+
+<p>  }</p>
+
+<p>```</p>
+
+<p>Next, the API includes countries as well as cities, so we have to screen for that.</p>
+
+<p><code>javascript
+// continued
+else if (response.RESULTS[i].type === "country" || response.RESULTS[i].lon === "-9999.000000") {
+  $("#invalid_city").text("Please enter a city and country");
+  return;
+}
+</code></p>
+
+<p>Finally, there are a bunch of edge cases of non-city locations where weather readings are taken, like hospitals and heliports. There are also some alternate names for regions, like Hong Kong S.A.R. (Special Administrative Region), which is a different result than just Hong Kong, China.</p>
+
+<p>To handle a few of these edge cases, we use a basic regex that we update as needed:</p>
+
+<p><code>javascript
+// continued
+else if (response.RESULTS[i].name.match(/(international|hospital|helistop|S\.A\.R|de Olivenca|do Potengi)/i)) {
+  return findCityArray(i++);
+}
+</code></p>
+
+<p>If the initial result isn&rsquo;t blank, but it doesn&rsquo;t meet the criteria here, we send another recursive <code>findCityArray</code> call to return the next element in the results API.</p>
+
+<h1>Backend Validation</h1>
+
+<p>Once we have valid city information, it&rsquo;s time to hit the server. The aim here is to send the city info to the server via Ajax and create or find a city object that we&rsquo;ll use to create a new clock that the user can click on.</p>
+
+<p>To do this, we send a POST request to the corresponding controller in Rails, which does exactly this &ndash; finding the user (if logged in) and making or finding the city.</p>
+
+<p>```ruby
+@user = User.find(session[:user_id]) if session[:user_id]
+@city = City.find_or_create_by(lat: city_params[:lat], lon: city_params[:lon]) do |city|
+  city.name = city_params[:name]
+  city.bigger_thing = city_params[:bigger_thing]
+  city.country = city_params[:country]
+end</p>
+
+<p>if !@user #create a temp user tied to session ID
+  @user = User.create(name: &lsquo;Guest&rsquo;,</p>
+
+<pre><code>  provider: 'anon', 
+  uid: session[:session_id], 
+  image: 'https://origin.ih.constantcontact.com/fs197/1110193228531/img/301.jpg?a=1115291249439')
+</code></pre>
+
+<p>  @user.cities &lt;&lt; [City.find(1),</p>
+
+<pre><code>               City.find(2), 
+               City.find(3), 
+               City.find(4), 
+               City.find(5)]
+</code></pre>
+
+<p>  session[:user_id] = @user.id
+end
+```</p>
+
+<p>Another cool thing here &ndash; if the user is not logged in but adds a city, we then create a temporary user and track the different cities they&rsquo;re using the session cookie. If this anonymous user decides to log in with their Twitter account, we update this anonymous user&rsquo;s info in the database with their real Twitter info and also import his cities from the session cookie into the new user&rsquo;s account. Edward took the lead on this feature, and you can read more about it on <a href="http://ewarren7.github.io/blog/2014/09/24/allowing-temporary-anonymous-user/">his blog</a>.</p>
+
+<p>In the controller, we also return the ID of the clock to be removed (<code>del_city_id</code>) from the page to make room for the new one.</p>
+
+<p>Finally, there&rsquo;s one last bit of validation: If the clock is already being displayed on the page, we show an error message to this effect and don&rsquo;t update the page.</p>
+
+<p><code>ruby
+unless @user.cities.find_by(lat: city_params[:lat], lon: city_params[:lon])
+  @user.cities &lt;&lt; @city if @user
+  del_city_id = city_params[:lastClock].to_i
+  CityUser.find_by(user_id: @user.id, city_id: del_city_id).destroy if @user
+  render json: @city
+else
+  render json: "this city already exists".to_json
+end
+</code></p>
+
+<p>Otherwise, we return the city object back to JavaScript, call the <code>makeClock</code> function to create the city&rsquo;s clock, and we&rsquo;re done!
+<a href="https://twitter.com/queens_js/status/517469989369311232"></p>
+
+<p style="text-align:center;"><img src="/images/10614/queens_js_sm.png" title="worldview" ></p>
+
+<p></a></p>
+
+<center><i>The four of us presenting the site at <a href="http://www.meetup.com/QueensJS/">QueensJS</a>!</i></center>
+
+
+
+]]></content>
+  </entry>
+  
+</feed>
