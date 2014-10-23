@@ -4,7 +4,7 @@
   <title><![CDATA[Category: steganography | lolgramming]]></title>
   <link href="http://kamoh.github.io/blog/categories/steganography/atom.xml" rel="self"/>
   <link href="http://kamoh.github.io/"/>
-  <updated>2014-10-23T00:39:12-04:00</updated>
+  <updated>2014-10-23T00:47:25-04:00</updated>
   <id>http://kamoh.github.io/</id>
   <author>
     <name><![CDATA[Ben Serviss]]></name>
@@ -84,7 +84,7 @@ message.gsub!("nigeria ","f")
 
 <p>Replacing single characters with encoded phrases took a fair chunk of time to nail down. While the first version duplicated the entire character/spam word key in both the encode and decode methods, any time I made a change to one method chain, the other would break.</p>
 
-<p>After alternating working on each chain for a bit, I realized that a &lsquo;phrase library&rsquo; store made the most sense. Using a hash for the data structure meant I could remove all duplication and condense the phrase library into just one method.</p>
+<p>After working on this for a bit, I realized that a &lsquo;phrase library&rsquo; store made the most sense. Using a hash for the data structure meant I could remove all duplication and condense the phrase library into just one method.</p>
 
 <p>Depending on the operation the user wanted to do, this method could return either an encoded phrase for a character to be encoded, or the original character for all occurrences of a given spam phrase. I&rsquo;ll come back to this in a bit.</p>
 
@@ -106,7 +106,7 @@ def library(input) # takes a hash of either { letter: letter } or { message: mes
 <p>To handle this, the program replaces all <code>\n</code> returns with the ♤ UTF-8 character, which is then replaced with spam phrases just like any other character. When decoding, the phrases associated with the spade character are replaced with the spade, then finally replaced with <code>\n</code> characters right before the whole message is restored to its decoded form and output back to the user.</p>
 
 <p><code>ruby
-message.gsub(" ","‡").gsub(/\n/,"♤").split("").each do |letter|
+message.gsub(" ","‡").gsub(/\n/,"♤").split("").each do |letter| # replacing all spaces and carriage returns with temp characters
   # encode each individual character of the message
 end
 </code></p>
@@ -119,8 +119,11 @@ end
 
 <p>Instead, I relied on an obvious constant &ndash; the length of the message.</p>
 
-<p>```ruby
-def initialize(message_input)
+<p>```ruby</p>
+
+<h1>in initialize, set the message text to @message and set the @message_length_key</h1>
+
+<p>def initialize(message_input)
   @message = message_input
   @message_length_key = message.length.to_s[-1].to_i
 end</p>
@@ -151,10 +154,10 @@ if character
 <h1>otherwise, we have a message to be decoded, and we need the original character in the key</h1>
 
 <p>else
-  phrase_library.each do |k,v|</p>
+  phrase_library.each do |char,phrase_list|</p>
 
-<pre><code>v.each do |phrase|
-  message.gsub!(phrase,k.to_s) if message.include?(phrase)
+<pre><code>phrase_list.each do |phrase|
+  message.gsub!(phrase,char) if message.include?(phrase)
 end
 </code></pre>
 
@@ -163,9 +166,9 @@ end
 end
 ```</p>
 
-<p>When encoding, the <code>message_length_key</code> variable is initialized with the last digit of the length of the message. Then, for every character substitution, the key increases by one. Since I only wrote/found 10 spam phrases for each character, a check runs on message_length_key for every loop and reduces the value if it every gets too high.</p>
+<p>When encoding, the <code>message_length_key</code> variable is initialized with the last digit of the length of the message. Then, for every character substitution, the key increases by one. Since I only wrote/found 10 spam phrases for each character, a check runs on <code>message_length_key</code> for every loop and reduces the value if it every gets too high.</p>
 
-<p>And that&rsquo;s it! It was a pretty fun project, and a good excuse to see what some challenges are when developing code systems. Plus, writing lots of gibberish turns out to be pretty fun.</p>
+<p>And that&rsquo;s it! It was a pretty fun project, and a good excuse to see what some challenges are when developing crytography systems. Plus, writing lots of gibberish turns out to be pretty fun.</p>
 
 <p>The whole thing&rsquo;s open sourced and up on github here: <a href="https://github.com/kamoh/spam-encoder">https://github.com/kamoh/spam-encoder</a></p>
 

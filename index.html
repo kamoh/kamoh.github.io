@@ -239,7 +239,7 @@
 
 <p>Replacing single characters with encoded phrases took a fair chunk of time to nail down. While the first version duplicated the entire character/spam word key in both the encode and decode methods, any time I made a change to one method chain, the other would break.</p>
 
-<p>After alternating working on each chain for a bit, I realized that a &lsquo;phrase library&rsquo; store made the most sense. Using a hash for the data structure meant I could remove all duplication and condense the phrase library into just one method.</p>
+<p>After working on this for a bit, I realized that a &lsquo;phrase library&rsquo; store made the most sense. Using a hash for the data structure meant I could remove all duplication and condense the phrase library into just one method.</p>
 
 <p>Depending on the operation the user wanted to do, this method could return either an encoded phrase for a character to be encoded, or the original character for all occurrences of a given spam phrase. I&rsquo;ll come back to this in a bit.</p>
 
@@ -265,7 +265,7 @@
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">message</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="s2">&quot;‡&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/\n/</span><span class="p">,</span><span class="s2">&quot;♤&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">letter</span><span class="o">|</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">message</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="s2">&quot;‡&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/\n/</span><span class="p">,</span><span class="s2">&quot;♤&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">letter</span><span class="o">|</span> <span class="c1"># replacing all spaces and carriage returns with temp characters</span>
 </span><span class='line'>  <span class="c1"># encode each individual character of the message</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
@@ -309,7 +309,11 @@
 <span class='line-number'>28</span>
 <span class='line-number'>29</span>
 <span class='line-number'>30</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">message_input</span><span class="p">)</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># in initialize, set the message text to @message and set the @message_length_key</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">message_input</span><span class="p">)</span>
 </span><span class='line'>  <span class="vi">@message</span> <span class="o">=</span> <span class="n">message_input</span>
 </span><span class='line'>  <span class="vi">@message_length_key</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">length</span><span class="o">.</span><span class="n">to_s</span><span class="o">[-</span><span class="mi">1</span><span class="o">].</span><span class="n">to_i</span>
 </span><span class='line'><span class="k">end</span>
@@ -332,9 +336,9 @@
 </span><span class='line'><span class="c1"># otherwise, we have a message to be decoded, and we need the original character in the key</span>
 </span><span class='line'>
 </span><span class='line'><span class="k">else</span>
-</span><span class='line'>  <span class="n">phrase_library</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">k</span><span class="p">,</span><span class="n">v</span><span class="o">|</span>
-</span><span class='line'>    <span class="n">v</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">phrase</span><span class="o">|</span>
-</span><span class='line'>      <span class="n">message</span><span class="o">.</span><span class="n">gsub!</span><span class="p">(</span><span class="n">phrase</span><span class="p">,</span><span class="n">k</span><span class="o">.</span><span class="n">to_s</span><span class="p">)</span> <span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="n">phrase</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">phrase_library</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">char</span><span class="p">,</span><span class="n">phrase_list</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">phrase_list</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">phrase</span><span class="o">|</span>
+</span><span class='line'>      <span class="n">message</span><span class="o">.</span><span class="n">gsub!</span><span class="p">(</span><span class="n">phrase</span><span class="p">,</span><span class="n">char</span><span class="p">)</span> <span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="n">phrase</span><span class="p">)</span>
 </span><span class='line'>    <span class="k">end</span>
 </span><span class='line'>  <span class="k">end</span>
 </span><span class='line'>  <span class="n">message</span>
@@ -342,9 +346,9 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>When encoding, the <code>message_length_key</code> variable is initialized with the last digit of the length of the message. Then, for every character substitution, the key increases by one. Since I only wrote/found 10 spam phrases for each character, a check runs on message_length_key for every loop and reduces the value if it every gets too high.</p>
+<p>When encoding, the <code>message_length_key</code> variable is initialized with the last digit of the length of the message. Then, for every character substitution, the key increases by one. Since I only wrote/found 10 spam phrases for each character, a check runs on <code>message_length_key</code> for every loop and reduces the value if it every gets too high.</p>
 
-<p>And that&rsquo;s it! It was a pretty fun project, and a good excuse to see what some challenges are when developing code systems. Plus, writing lots of gibberish turns out to be pretty fun.</p>
+<p>And that&rsquo;s it! It was a pretty fun project, and a good excuse to see what some challenges are when developing crytography systems. Plus, writing lots of gibberish turns out to be pretty fun.</p>
 
 <p>The whole thing&rsquo;s open sourced and up on github here: <a href="https://github.com/kamoh/spam-encoder">https://github.com/kamoh/spam-encoder</a></p>
 
