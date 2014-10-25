@@ -44,7 +44,7 @@
   background-image: url('http://ruby005.students.flatironschool.com/img/students/ben_serviss_profile.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  border-radius: 100px;
+  border-radius: 120px;
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
   width: 140px;
@@ -52,10 +52,12 @@
   top: -212px;
   left: 41.07%;
   border: 2px solid white;
-  /*margin-top: 205px;*/
   -webkit-transition: all 2s ease-in-out;
   -moz-transition: all 2s ease-in-out;
   -ms-transition: all 2s ease-in-out;
   -o-transition: all 2s ease-in-out;
   transition: all 2s ease-in-out;
+}
+.about-profile-pic {
+  border-radius: 120px;
 }
