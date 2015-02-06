@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: best practices | lolgramming]]></title>
+  <link href="http://kamoh.github.io/blog/categories/best-practices/atom.xml" rel="self"/>
+  <link href="http://kamoh.github.io/"/>
+  <updated>2015-02-06T16:19:46-05:00</updated>
+  <id>http://kamoh.github.io/</id>
+  <author>
+    <name><![CDATA[Ben Serviss]]></name>
+    <email><![CDATA[ben@benserviss.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[I'm Hired, Now What? The New Developer's Survival Guide]]></title>
+    <link href="http://kamoh.github.io/blog/2015/02/06/hired-now-what-developers-survival-guide/"/>
+    <updated>2015-02-06T14:30:55-05:00</updated>
+    <id>http://kamoh.github.io/blog/2015/02/06/hired-now-what-developers-survival-guide</id>
+    <content type="html"><![CDATA[<p>So you&rsquo;ve made it past the whiteboard interview, met most of the team, and accepted an offer for your first engineering job. Congratulations! It may feel like your ordeal is over, but in fact, your journey has just begun.</p>
+
+<p>Whether you&rsquo;re self-taught, coming from a four-year degree or fresh out of an immersive development program, you&rsquo;ll quickly learn that day-to-day professional software development is a completely different animal from learning in a controlled environment.</p>
+
+<p>Here are some of the things I&rsquo;ve learned through my first engineering job that should help make for a smoother transition from student to pro developer.</p>
+
+<h1>Getting Set Up</h1>
+
+<hr>
+
+
+<h3>Learning the Codebase</h3>
+
+<p>One of the biggest challenges you&rsquo;ll have is getting acclimated to a legacy codebase. If this is your first time encountering a real production codebase, resist the urge to feel overwhelmed &ndash; you won&rsquo;t need to know how everything works at first (possibly ever), and no one will expect you to as a new hire.</p>
+
+<p>Instead, focus on understanding the common patterns and conventions being used to get a sense of how things operate. If there are multiple applications involved, concentrate on getting a good bead on how one of them works as opposed to jumping back and forth too much.</p>
+
+<h3>Close Reading Code</h3>
+
+<p>My former classmate <a href="http://kylefdoherty.github.io/blog/2015/01/04/what-i-learned-after-3-months-as-a-junior-developer/">Kyle Doherty</a> recommends close reading code in his own blog post on this subject. Close reading &ndash; reading along with the code, while commenting every line to explicitly spell out to yourself what&rsquo;s going on &ndash; is an excellent way to gain a meaningful understanding of what&rsquo;s going on behind the scenes.</p>
+
+<h3>Investigate the Database</h3>
+
+<p>Looking at the database structure will also help speed your comprehension along. Even better, once you&rsquo;ve got a decent grasp on its high-level workings, ask your coworkers about any &lsquo;gotchas&rsquo; that tend to trip people up when interacting with the database.</p>
+
+<p>If you want to be a real hero, document these things (if they haven&rsquo;t been already) and make them available to the team &ndash; you&rsquo;ll be bringing yourself up to speed, plus making it easier for future newbies to get up and running.</p>
+
+<h1>Everyday Practices</h1>
+
+<hr>
+
+
+<p>Once you&rsquo;ve grown comfortable with the learning process &ndash; it&rsquo;ll take quite a while to feel like you have a handle on everything &ndash; there are some everyday activities you can work into your routine to help smooth the process along.</p>
+
+<h3>Keep a Running Log</h3>
+
+<p>One thing that I found extremely helpful was taking detailed notes. Whatever I was working on &ndash; tracing an obscure error message, diagramming out a better pattern, debugging my environment &ndash; having a running text log I could refer back to whenever a similar issue came up quickly proved to be invaluable. Referencing the specific ticket number for the issue in the log can also help with locating relevant information fast.</p>
+
+<h3>Use Your Notes When Logging Tickets</h3>
+
+<p>Even better, once you&rsquo;ve resolved an issue, this log instantly becomes the history of how you found the solution. Including this play-by-play into Jira or whatever issue-tracking software your team uses helps add to the team&rsquo;s institutional knowledge for the next time something similar pops up.</p>
+
+<p>Also, when working in the code on tickets, adding a comment with the corresponding ticket number when appropriate can help point future developers to relevant existing issues, and can make things easier for anyone who might pick up the task in the future.</p>
+
+<h3>Plan to Ask For Help</h3>
+
+<p>Knowing when to ask for help is critical, especially as a junior. A good rule of thumb would be to give yourself 45 minutes to find a solution. If you aren&rsquo;t able to make meaningful progress by that point, definitely ask for help.</p>
+
+<p>At that point you&rsquo;ll be able to walk your coworker through everything you tried, and you&rsquo;ll be extra-receptive to the solution for next time.</p>
+
+<h1>Regular Milestone Check-Ins</h1>
+
+<hr>
+
+
+<p>When you&rsquo;re in the weeds, it can be hard to get the impression that you&rsquo;re improving. Two regular practices can help yourself realize how much you really are learning on the job: Daily postmortems and weekly summaries.</p>
+
+<h3>Daily Postmortems</h3>
+
+<p>At the end of every day, simply write down 3-5 new things that you learned that day. Having trouble figuring out what they are? Guess what &ndash; if you&rsquo;ve been keeping a running log, just read back through that!</p>
+
+<h3>Weekly Summaries</h3>
+
+<p>At the end of every week, write a simple summary of how it went, what you learned, and what&rsquo;s on the horizon. I prefer a few bulleted sentences, but whatever works for you is great. If you&rsquo;re having trouble thinking of things, just refer to that week&rsquo;s daily postmortems!</p>
+
+<h1>Just Keep Learning</h1>
+
+<p>More than anything else, becoming a professional developer (like most things) is all about incremental improvements. The more mechanisms you create for yourself to retain and acknowledge your steady improvement, the faster you&rsquo;ll learn &ndash; and the more fun you&rsquo;ll have doing it.</p>
+]]></content>
+  </entry>
+  
+</feed>
