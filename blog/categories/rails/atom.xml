@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: rails | lolgramming]]></title>
+  <link href="http://kamoh.github.io/blog/categories/rails/atom.xml" rel="self"/>
+  <link href="http://kamoh.github.io/"/>
+  <updated>2016-02-01T07:53:03-05:00</updated>
+  <id>http://kamoh.github.io/</id>
+  <author>
+    <name><![CDATA[Ben Serviss]]></name>
+    <email><![CDATA[ben@benserviss.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Testing on Mobile with Rails]]></title>
+    <link href="http://kamoh.github.io/blog/2016/01/31/testing-on-mobile-with-rails/"/>
+    <updated>2016-01-31T18:21:54-05:00</updated>
+    <id>http://kamoh.github.io/blog/2016/01/31/testing-on-mobile-with-rails</id>
+    <content type="html"><![CDATA[<p>When developing for mobile, you can get most of the way there by changing your viewport width to simulate a mobile device. But sometimes, that&rsquo;s just not good enough.</p>
+
+<p>Luckily, if you&rsquo;re working on a Rails app, there&rsquo;s an easy way to configure your local development environment so you can access it on any mobile device you need to test with.</p>
+
+<h1>1. Find Your Internal IP</h1>
+
+<p>First, find out what your computer&rsquo;s internal IP is behind your router. You can find this with <code>ifconfig</code> in the command line, or if you&rsquo;re on a Mac, you can find it in System Preferences &ndash;> Network under the Status field for your wifi connection.</p>
+
+<p style="text-align:center;"><img class="right" src="/images/2116/find-internal-ip.png" title="First, find your internal IP" ></p>
+
+<br>
+
+
+<h1>2. Launch Rails &amp; Listen</h1>
+
+<p>Next, launch your rails app without binding to your development machine with <code>rails s -binding=0.0.0.0</code>. You can also use <code>rails s -b 0.0.0.0</code> if the first command gives you trouble.</p>
+
+<p>The <code>-b</code> flag binds the server to a specific IP, but by listening on 0.0.0.0 you allow any incoming connections to hit the app instead of only granting access to your local machine.</p>
+
+<p>```ruby
+rails s -b 0.0.0.0</p>
+
+<h1>=> Booting Thin</h1>
+
+<h1>=> Rails 4.1.4 application starting in development on <a href="http://0.0.0.0:3000">http://0.0.0.0:3000</a></h1>
+
+<h1>=> Run <code>rails server -h</code> for more startup options</h1>
+
+<h1>=> Notice: server is listening on all interfaces (0.0.0.0). Consider using 127.0.0.1 (&mdash;binding option)</h1>
+
+<h1>=> Ctrl-C to shutdown server</h1>
+
+<h1>Thin web server (v1.6.3 codename Protein Powder)</h1>
+
+<h1>Maximum connections set to 1024</h1>
+
+<h1>Listening on 0.0.0.0:3000, CTRL+C to stop</h1>
+
+<p>```</p>
+
+<h1>3. Go To There</h1>
+
+<p>Finally, get your device and enter your development computer&rsquo;s internal IP and the app port in whatever browser you&rsquo;re testing. Now you can hit your local app as you develop!</p>
+
+<p style="text-align:center;"><img src="/images/2116/rails-app-mobile-device.jpg" width="250" title="Now you can hit your rails app from your device" ></p>
+]]></content>
+  </entry>
+  
+</feed>

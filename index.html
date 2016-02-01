@@ -130,6 +130,106 @@
   
 
 
+<i class="icon-calendar-empty"></i> <time datetime="2016-01-31T18:21:54-05:00" pubdate data-updated="true">Jan 31<span>st</span>, 2016</time></h5>
+          <div class="row-fluid">
+          
+          <a href="http://kamoh.github.io/blog/2016/01/31/testing-on-mobile-with-rails/#disqus_thread">Comments </a> <span class="fui-bubble-16"></span>
+          
+          </div>
+          
+          <div class="row-fluid">
+          
+          <a href="/blog/categories/android/"><span class="badge">android</span></a>
+          
+          <a href="/blog/categories/ios/"><span class="badge">ios</span></a>
+          
+          <a href="/blog/categories/mobile/"><span class="badge">mobile</span></a>
+          
+          <a href="/blog/categories/rails/"><span class="badge">rails</span></a>
+          
+          </div>
+          
+    </div>
+    <div class="span10 post-container">
+      <h1 class="link"><a href="/blog/2016/01/31/testing-on-mobile-with-rails/">Testing on Mobile with Rails</a></h1>
+      <p>When developing for mobile, you can get most of the way there by changing your viewport width to simulate a mobile device. But sometimes, that&rsquo;s just not good enough.</p>
+
+<p>Luckily, if you&rsquo;re working on a Rails app, there&rsquo;s an easy way to configure your local development environment so you can access it on any mobile device you need to test with.</p>
+
+<h1>1. Find Your Internal IP</h1>
+
+<p>First, find out what your computer&rsquo;s internal IP is behind your router. You can find this with <code>ifconfig</code> in the command line, or if you&rsquo;re on a Mac, you can find it in System Preferences &ndash;> Network under the Status field for your wifi connection.</p>
+
+<p style="text-align:center;"><img class="right" src="/images/2116/find-internal-ip.png" title="First, find your internal IP" ></p>
+
+<br>
+
+
+<h1>2. Launch Rails &amp; Listen</h1>
+
+<p>Next, launch your rails app without binding to your development machine with <code>rails s -binding=0.0.0.0</code>. You can also use <code>rails s -b 0.0.0.0</code> if the first command gives you trouble.</p>
+
+<p>The <code>-b</code> flag binds the server to a specific IP, but by listening on 0.0.0.0 you allow any incoming connections to hit the app instead of only granting access to your local machine.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rails</span> <span class="n">s</span> <span class="o">-</span><span class="n">b</span> <span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># =&gt; Booting Thin</span>
+</span><span class='line'><span class="c1"># =&gt; Rails 4.1.4 application starting in development on http://0.0.0.0:3000</span>
+</span><span class='line'><span class="c1"># =&gt; Run `rails server -h` for more startup options</span>
+</span><span class='line'><span class="c1"># =&gt; Notice: server is listening on all interfaces (0.0.0.0). Consider using 127.0.0.1 (--binding option)</span>
+</span><span class='line'><span class="c1"># =&gt; Ctrl-C to shutdown server</span>
+</span><span class='line'><span class="c1"># Thin web server (v1.6.3 codename Protein Powder)</span>
+</span><span class='line'><span class="c1"># Maximum connections set to 1024</span>
+</span><span class='line'><span class="c1"># Listening on 0.0.0.0:3000, CTRL+C to stop</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>3. Go To There</h1>
+
+<p>Finally, get your device and enter your development computer&rsquo;s internal IP and the app port in whatever browser you&rsquo;re testing. Now you can hit your local app as you develop!</p>
+
+<p style="text-align:center;"><img src="/images/2116/rails-app-mobile-device.jpg" width="250" title="Now you can hit your rails app from your device" ></p>
+
+      
+      
+    </div>
+  </div>
+
+
+
+    </article>
+    
+    <hr>
+    
+  
+  
+    <article>
+      
+
+  <div class="row-fluid">
+    <div class="span2 post-meta">
+	  <h5 class="date-time">
+
+
+
+
+
+
+
+
+  
+
+
 <i class="icon-calendar-empty"></i> <time datetime="2015-02-06T14:30:55-05:00" pubdate data-updated="true">Feb 6<span>th</span>, 2015</time></h5>
           <div class="row-fluid">
           
@@ -1342,7 +1442,7 @@
       <div class="row-fluid">
         <footer class="footer-page" role="contentinfo">
           <p>
-  Copyright &copy; 2015 - Ben Serviss -
+  Copyright &copy; 2016 - Ben Serviss -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span> - Theme by <a href="http://alexgaribay.com">Alex Garibay</a>
 </p>
 
